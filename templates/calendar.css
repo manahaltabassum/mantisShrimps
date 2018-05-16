@@ -12,7 +12,7 @@
 	background: #cd310d;
 	background: -moz-linear-gradient(top, #b32b0c, #cd310d);
 	background: -webkit-gradient(linear, left top, left bottom, from(#b32b0c), to(#cd310d));
-	height:100px;
+	height:50px;
 	position:relative;
 	color:#fff;
 	-webkit-border-top-left-radius:5px;
@@ -27,7 +27,7 @@
 }
 #cal .header span {
 	display:inline-block;
-	line-height:100px;
+	line-height:50px;
 }
 
 #cal .header .button {
@@ -68,12 +68,24 @@
 }
 #cal td {
 	color:#2d2d2d;
-	width:100px;
-	height:100px;
+	width:75px;
+	height:75px;
 	line-height:30px;
 	text-align:center;
 	border:1px solid #e6e6e6;
 	cursor:default;
+}
+
+#cal #days .w {
+    width: 75px;
+    height: 30px;
+}
+
+#cal #cal-frame .curr .d{
+    color: #2d2d2d;
+    text-align: right;
+    vertical-align: top;
+    padding-right: 5px;
 }
 
 #cal #day td {
