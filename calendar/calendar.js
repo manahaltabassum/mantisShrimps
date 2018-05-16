@@ -1,8 +1,15 @@
-var date = document.getElementsByTagName("TD");
+var date = document.getElementsByClassName("d");
+var month_year = document.getElementById("label");
+
 console.log(date);
 for (i = 0; i < date.length; i++) {
-    console.log(date[i].innerHTML)
-    date[i].addEventListener("click", function(){console.log(date[i].innerHTML);});
+    console.log(date[i].innerHTML);
+    console.log(date[i]);
+    date[i].addEventListener("click", function(){console.log(this.innerHTML); console.log(month_year.innerHTML);});
+}
+
+var getDate = function(e){
+    console.log(e.innerHTML);
 }
 
 var CALENDAR = function () {
