@@ -7,69 +7,49 @@ f = "app.db"
 db = sqlite3.connect(f)
 c = db.cursor()
 #if a item has 0 the user is not using the item. If it is 1 they user is using
-c.execute('CREATE TABLE IF NOT EXISTS items (user TEXT, item TEXT, playing INTEGER);')
-c.execute('CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, cash FLOAT);')
-c.execute('CREATE TABLE IF NOT EXISTS highscore (username TEXT, score INTEGER);')
+c.execute('CREATE TABLE IF NOT EXISTS outfits (username TEXT, outName TEXT, item TEXT);')
+c.execute('CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, name TEXT);')
+c.execute('CREATE TABLE IF NOT EXISTS clothes (username TEXT, id INTEGER, type TEXT, labels TEXT, clothName TEXT, frequency INTEGER);')
+c.execute('CREATE TABLE IF NOT EXISTS outfit_history (username TEXT, outName TEXT, date TEXT);')
 db.close()
 
-#changes cash amount
-def changevalue(change,user):
+#add cloth to clothes
+def addCloth(user,Id, Type, labels, item, freq):
     f = "app.db"
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute('UPDATE users SET cash = "%d" WHERE username = "%s";' %(change,user))
+    c.execute('INSERT INTO items VALUES("%s", "%s", 0);' %(user,Id, Type, labels, item, freq) )
     db.commit()
     db.close()
 
-#get the amount of cash player has
-def getcash(user):
+#add item to outfits
+def addOutfit(user, outName, item):
     f = "app.db"
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute("SELECT cash FROM users WHERE username = '%s';" %(user) )
-    results = c.fetchall()[0][0]
-    db.commit()
-    db.close()
-    return float(results)
-
-#checks if program can purchase
-def canpurchase(user,value):
-    money = getcash(user)
-    return money > value
-
-
-#add item to list
-def additem(user,item):
-    f = "app.db"
-    db = sqlite3.connect(f)
-    c = db.cursor()
-    c.execute('INSERT INTO items VALUES("%s", "%s", 0);' %(user,item) )
+    c.execute('INSERT INTO outfits VALUES("%s", "%s", 0);' %(user, outName, item) )
     db.commit()
     db.close()
 
-#returns a list of items the user is using
-def itemlist(user):
+#returns a list of clothes of same type the user have
+def getClothes(user, Type):
     f = "app.db"
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute('SELECT * FROM items WHERE user = "%s";' %(user) )
+    c.execute('SELECT * FROM clothes WHERE username = "%s" AND type = "%s";' %(user, Type) )
     results = c.fetchall()
     db.close()
     return results
-
-#returns a list of items the user is using
-def itemusinglist(user):
+    
+#returns a list of clothes the user have
+def itemlist(user, Type):
     f = "app.db"
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute('SELECT * FROM items WHERE user = "%s" AND playing = 1 LIMIT 8;' %(user) )
+    c.execute('SELECT * FROM clothes WHERE username = "%s";' %(user) )
     results = c.fetchall()
     db.close()
     return results
-
-#helper function for adding that prevents adding if there is 8 items selected
-def isnotmax(list):
-    return len(list) < 8
 
 #checks if the item being added is a duplicate
 def isunique(user,item):
@@ -86,54 +66,6 @@ def isunique(user,item):
             return True
     return False
 
-#allows player to use item
-def use(user,item):
-    if isnotmax(itemusinglist(user)):
-        f = "app.db"
-        db = sqlite3.connect(f)
-        c = db.cursor()
-        c.execute('UPDATE items SET playing = 1 WHERE user = "%s" AND item = "%s";' %(user,item) )
-        db.commit()
-        db.close()
-
-    #turns off item
-def notuse(user,item):
-    f = "app.db"
-    db = sqlite3.connect(f)
-    c = db.cursor()
-    c.execute('UPDATE items SET playing = 0 WHERE user = "%s" AND item = "%s" ;' %(user,item) )
-    db.commit()
-    db.close()
-
-#add score to score table
-def addscore(user,score):
-    f = "app.db"
-    db = sqlite3.connect(f)
-    c = db.cursor()
-    c.execute('INSERT INTO highscore VALUES("%s", %d);' %(user, score))
-    db.commit()
-    db.close()
-
-#get 10 highest scores from all users
-def gethighscore():
-    f = "app.db"
-    db = sqlite3.connect(f)
-    c = db.cursor()
-    c.execute('SELECT * FROM highscore ORDER BY score DESC LIMIT 10;')
-    results = c.fetchall()
-    db.close
-    return results
-
-#return the 5 highest scores for a user
-def gethighscore_user(user):
-    f = "app.db"
-    db = sqlite3.connect()
-    c = db.cursor()
-    e.execute('SELECT * FROM highscores WHERE username= "%s" ORDER BY score DESC LIMIT 5;' %(user) )
-    results = c.fetchall()
-    db.close
-    return results
-
 #add the user to the databaseh
 def adduser(user,password):
 	f = "app.db"
@@ -142,13 +74,6 @@ def adduser(user,password):
 	if get_pass(user) is None:
 		password = hashlib.sha224(password).hexdigest()
 		c.execute('INSERT INTO users VALUES("%s", "%s", 100.0);' %(user, password))
-        c.execute('INSERT INTO items VALUES("%s", "kiwi.png", 0);' %(user) )
-        c.execute('INSERT INTO items VALUES("%s", "grapple.png", 0);' %(user) )
-        c.execute('INSERT INTO items VALUES("%s", "dragonfruit.png", 0);' %(user) )
-        c.execute('INSERT INTO items VALUES("%s", "mango.png", 0);' %(user) )
-        c.execute('INSERT INTO items VALUES("%s", "pineapple.png", 0);' %(user) )
-        c.execute('INSERT INTO items VALUES("%s", "pomegranate.png", 0);' %(user) )
-        c.execute('INSERT INTO items VALUES("%s", "watermelon.png", 0);' %(user) )
         db.commit()
         db.close()
         return True
