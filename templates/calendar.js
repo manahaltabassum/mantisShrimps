@@ -7,7 +7,7 @@ var addEventToDate = function(){
     for (i = 0; i < date.length; i++) {
 	//console.log(date[i].innerHTML);
 	//console.log(date[i]);
-	date[i].addEventListener("click", function(){console.log(this.innerHTML); console.log(month_year.innerHTML);console.log("hello")});
+	date[i].addEventListener("click", function(){console.log(this.innerHTML); console.log(month_year.innerHTML);});
     }
 }
 
