@@ -36,3 +36,5 @@ finished up home.html by adding sign in and register options
 manahalT -- 2018-05-15 20:53:28
 worked on calendar
 
+yuqiW -- 2018-05-15 21:27:33
+worked on login and register

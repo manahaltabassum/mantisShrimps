@@ -108,11 +108,12 @@
 	  </ul>
 	</div>
       </nav>
-      
+
+
       <div id="modalLogin" class="modal fade" role="dialog">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
-	    <form class="form-signin" method="POST" action="{{ url_for('login_auth') }}">
+	    <form class="form-signin" method="POST" action="/login_auth">
 	      <div class="modal-header">
 		<h2 class="form-signin-heading">Please sign in</h2>
 	      </div>
@@ -181,6 +182,18 @@
 	</a>
       </div>
 
+      {% if error %}
+      <p><strong>Error:</strong> {{ error }} </p>
+      {% endif %}
+      
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p> {{ message }} </p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      
       <div id="description" class="container text-cetner">
 	<h3>WHAT IS THIS SITE</h3>
 	<p><em>We love organizing clothes!</em></p>
