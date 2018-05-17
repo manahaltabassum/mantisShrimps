@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from utils import *
-import urllib
-import os
-import glob
+from utils.db import *
+import urllib, os, glob, hashlib
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 

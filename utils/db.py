@@ -1,4 +1,4 @@
-import sqlite3   #enable control of an sqlite database
+import sqlite3, hashlib   #enable control of an sqlite database
 
 #add cloth to clothes
 def addCloth(user,Id, Type, labels, item, freq):
@@ -53,14 +53,14 @@ def isunique(user,item):
             return True
     return False
 
-#add the user to the databaseh
+#add the user to the database
 def adduser(user,password):
 	f = "data/closet.db"
 	db = sqlite3.connect(f)
 	c = db.cursor()
 	if get_pass(user) is None:
 		password = hashlib.sha224(password).hexdigest()
-		c.execute('INSERT INTO users VALUES("%s", "%s", 100.0);' %(user, password))
+		c.execute('INSERT INTO users VALUES("%s", "%s");' %(user, password))
         db.commit()
         db.close()
         return True
@@ -121,19 +121,25 @@ def table_gen(c):
     create_users = "CREATE TABLE IF NOT EXISTS users(username TEXT PRIMARY KEY, password TEXT);"
     
     
-    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT PRIMARY KEY, id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, label TEXT, clothName TEXT, frequency INTEGER);"
+    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, label TEXT, clothName TEXT, frequency INTEGER);"
 
 
-    create_outfits = "CREATE TABLE IF NOT EXISTS outfits(username TEXT PRIMARY KEY, outName TEXT, id INTEGER PRIMARY KEY);"
+    create_outfits = "CREATE TABLE IF NOT EXISTS outfits(username TEXT, outName TEXT, id INTEGER, PRIMARY KEY(username, id));"
 
-    create_outhistory = "CREATE TABLE IF NOT EXISTS outfit_history( username TEXT PRIMARY KEY, outName TEXT, date TEXT);"
+    create_outhistory = "CREATE TABLE IF NOT EXISTS outfit_history(username TEXT PRIMARY KEY, outName TEXT, date TEXT);"
     
     c.execute(create_users)
+    print "\n" + create_users + "\n"
+    
     c.execute(create_clothes)
+    print "\n" + create_clothes + "\n"
+    
     c.execute(create_outfits)
-    c.execute(create_outhistory)    
+    print "\n" + create_outfits + "\n"
+    
+    c.execute(create_outhistory)
+    print "\n" + create_outhistory + "\n" 
 #===========================================================================================
-
 db = sqlite3.connect("data/closet.db")
 c = db.cursor()
 table_gen(c)
