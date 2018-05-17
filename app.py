@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from db import *
+from utils import *
 import urllib
 import os
 import glob
