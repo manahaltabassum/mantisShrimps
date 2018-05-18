@@ -1,3 +1,3 @@
 # term02_project02
 
-[Server Name](206.189.194.250)
+[Server Name](http://206.189.194.250)
