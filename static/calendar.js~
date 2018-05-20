@@ -1,5 +1,20 @@
-var month_year = document.getElementById("label");
+var data = ""
 
+var getData = function(){
+    $.ajax({
+	url: "/calendar_helper",
+	type: "GET",
+	data: {},
+	success: function(d){
+	    data = d;
+	}
+    });
+};
+
+console.log("test");
+console.log(data);
+
+var month_year = document.getElementById("label");
 var addEventToDate = function(){
     var date = document.getElementsByClassName("d");
     console.log(date);
@@ -49,6 +64,7 @@ var CALENDAR = function () {
 	addEventToDate();
 	
     }
+
     
     function createCal(year, month) {
 	var day = 1, i, j, haveDays = true, 
@@ -89,7 +105,7 @@ var CALENDAR = function () {
 	if (calendar[5]) {
 	    for (i = 0; i < calendar[5].length; i++) {
 		if (calendar[5][i] !== "") {
-		    calendar[4][i] = "<span>" + calendar[4][i] + "</span><span>" + calendar[5][i] + "</span>";
+		    calendar[4][i] = "<span>" + calendar[4][i] +  "</span><span>" + calendar[5][i] + "</span>";
 		}
 	    }
 	    calendar = calendar.slice(0, 5);
@@ -98,6 +114,7 @@ var CALENDAR = function () {
 	for (i = 0; i < calendar.length; i++) {
 	    calendar[i] = "<tr><td class=d>" + calendar[i].join("</td><td class=d>") + "</td></tr>";
 	}
+
 	calendar = $("<table>" + calendar.join("") + "</table").addClass("curr");
 	addEventToDate();
 	$("td:empty", calendar).addClass("nil");

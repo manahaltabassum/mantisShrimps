@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from utils.db import *
+from utils import weather
 import urllib, os, glob, hashlib
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -90,6 +91,17 @@ def register_auth():
             flash("Sorry, username already exists")
             return redirect( url_for('home') )
 
+
+@app.route('/calendar')
+def calendar():
+        return render_template("userPage.html")
+
+@app.route('/calendar_helper')
+def calendar_helper():
+       return str(weather.weekly())
+
 if __name__ == '__main__':
     app.debug = True
     app.run()
+
+    

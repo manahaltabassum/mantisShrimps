@@ -1,4 +1,4 @@
-import requests, json
+import requests, json, datetime
 
 key = "901db038817e40bc4789ce2fc1dde133"
 
@@ -9,9 +9,11 @@ def weekly():
     data = requests.get(url).json()
     data = data['daily']['data']
     #print data
-    d = {x["time"] : {"min" : x["temperatureLow"], "max" : x["temperatureHigh"], 'desc' : x["icon"]} for x in data}
-    print d
+    #for x in data:
+      #  print datetime.datetime.fromtimestamp(x["time"]).strftime('%d')
+    d = {datetime.datetime.fromtimestamp(x["time"]).strftime('%d') : {"min" : x["temperatureLow"], "max" : x["temperatureHigh"], 'desc' : x["icon"]} for x in data}
+    #print d
     
-    return
+    return d
 
 weekly()
