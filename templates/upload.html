@@ -3,7 +3,7 @@
   <title>
     Uploading
   </title>
-
+{{ dropzone.load() }}
   <style>
     #div1 {
     width: 350px;
@@ -49,11 +49,14 @@
     <br>
     <br>
     <br>
-    <div id="upload" class="container text-center">
-      <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-      </div>
-    </div>
-    
+    <!-- <div id="upload" class="container text-center">
+	 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	 </div>
+    </div> -->
+
+    <!--<script src="static/dropzone.js"> </script>
+    <link rel="stylesheet" type="text/css" href="static/dropzone.css"> -->
+{{ dropzone.create(action_view='upload') }}
   </body>
 </html>
 

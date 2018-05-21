@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from utils.db import *
 from utils import weather
 import urllib, os, glob, hashlib
+from flask_dropzone import Dropzone
 app = Flask(__name__)
+dropzone = Dropzone(app)
 app.secret_key = os.urandom(32)
 
 #================LOGIN HELPERS==============================
@@ -100,6 +102,16 @@ def calendar():
 def calendar_helper():
        return str(weather.weekly())
 
+@app.route('/upload', methods=["GET", "POST"])
+def upload():
+        if request.method == 'POST':
+                f = request.files.get('file')
+                f.save(os.path.join('data/img/', f.filename))
+        return render_template("upload.html")
+
+#@app.route('/upload_helper')
+#def upload_helper():
+  #      return
 if __name__ == '__main__':
     app.debug = True
     app.run()
