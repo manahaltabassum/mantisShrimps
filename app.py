@@ -45,17 +45,17 @@ def logout_db():
 
 @app.route('/')
 def root():
-	#if in_session():	
-             #   return redirect( url_for('home') )
-	#else:
-	return render_template("home.html")
+	if in_session():	
+                return redirect( url_for('home') )
+	else:
+	        return render_template("root.html")
 
 @app.route('/home',methods=['GET','POST'])
 def home():
-	#if in_session():
-                #return redirect( url_for('home') )
-	#else:
-	return render_template('home.html')
+	if in_session():
+                return render_template('home.html')
+	else:
+	        return redirect(url_for('root'))
 
 @app.route('/login_auth', methods=['POST'])
 def login_auth():
@@ -68,10 +68,10 @@ def login_auth():
                 flash("You have successfully logged in!!!")
                 return redirect( url_for('home') )
         flash("Invalid Username/Password")
-        return redirect( url_for('home') )
+        return redirect( url_for('root') )
     else:
             
-        return render_template('home.html')
+        return render_template('root.html')
 
     
 @app.route('/register_auth', methods=["POST"])
@@ -87,16 +87,16 @@ def register_auth():
                         return redirect( url_for('home') )
                 else:
                         flash("Sorry, your passwords do not match")
-                        return redirect( url_for('home') )
+                        return redirect( url_for('root') )
 
         else:
             flash("Sorry, username already exists")
-            return redirect( url_for('home') )
+            return redirect( url_for('root') )
 
 
 @app.route('/calendar')
 def calendar():
-        return render_template("userPage.html")
+        return render_template("calendar.html")
 
 @app.route('/calendar_helper')
 def calendar_helper():
