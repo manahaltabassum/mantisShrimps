@@ -1,289 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
-      Closet Organizer!
-    </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>
+    Home
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="calendar.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
-      .container {
-      padding: 40px 120px;
-      }
-      .navbar {
-      font-family: Montserrat, sans-serif;
-      margin-bottom: 0;
-      background-color: #2d2d30;
-      border: 0;
-      font-size: 11px !important;
-      opacity: 1;
-      }
-      .carousel-inner img { 
-      width: 100%; /* Set width to 100% */
-      height: 500px !important;
-      margin: auto;
-      }
-      h3 {
-      margin: 10px 0 30px 0;
-      letter-spacing: 5px;
-      font-size: 20px;
-      color: #111;
-      text-align: center;
-      }
-      p {
-      text-align: center;
-      }
-      .bg-1 {
-      background: #2d2d30;
-      color: #bdbdbd;
-      }
-      .bg-1 h3 {
-      color: #fff;
-      }
-      .person {
-      border: 5px solid transparent;
-      margin-top: 0px;
-      margin-bottom: 25px;
-      width: 150px;
-      height: 150px;
-      opacity: 1;
-      }
-      .person:hover {
-      border-color: #f1f1f1;
-      }
-      .text-center {
-      align: center;
-      }
-            .form-signin {
-      max-width: 330px;
-      padding: 15px;
-      margin: 0 auto;
-      }
-      .form-signin .form-signin-heading,
-      .form-signin .checkbox {
-      margin-bottom: 10px;
-      }
-      .form-signin .checkbox {
-      font-weight: normal;
-      }
-      .form-signin .form-control {
-      position: relative;
-      height: auto;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 10px;
-      font-size: 16px;
-      }
-      .form-signin .form-control:focus {
-      z-index: 2;
-      }
-      .form-signin input[type="text"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-      }
-      .form-signin input[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      }
-    </style>
-
-    <body id="myPage">
-      <nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container-fluid">
-	  <div class="navbar-header">
-	    <a class="navbar-brand" href="#myPage">Closet Organizer</a>
-	  </div>
-	  <ul class="nav navbar-nav navbar-right">
-	    <li><a href="#modalRegister" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	    <li><a href="#modalLogin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	  </ul>
+  <body id="mainPage">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#mainPage">Closet Organizer</a>
 	</div>
-      </nav>
-
-
-      <div id="modalLogin" class="modal fade" role="dialog">
-	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-	    <form class="form-signin" method="POST" action="/login_auth">
-	      <div class="modal-header">
-		<h2 class="form-signin-heading">Please sign in</h2>
-	      </div>
-	      <div class="modal-body">
-		<input name="usr" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-		<input name="pwd" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	      </div>
-	      <div class="modal-footer">
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> </br>
-		<button type="button" class="btn btn-block" data-dismiss="modal">Close</button>
-	      </div>
-	    </form>
-	  </div>
-	</div>
+	<ul class="nav navbar-nav navbar-right">
+	  <li><a href="/upload"> Upload </a></li>
+	  <li><a href="/calendar"> Calendar </a></li>
+	  <li><a href="/home"> My Closet </a></li>
+	  <li><a href=""> Outfit Creator </a></li>
+	</ul>
       </div>
-
-            
-      <div id="modalRegister" class="modal fade" role="dialog">
-	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-	    <form class="form-signin" method="POST" action="{{ url_for('register_auth') }}">
-	      <div class="modal-header">
-		<h2 class="form-signin-heading">Register here</h2>
-	      </div>
-	      <div class="modal-body">
-		<input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-		<input name="usr" type="text" id="inputUsername" class="form-control" placeholder="Username" required>
-		<input name="pwd" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-		<input name="cfm" type="password" id="inputConformation" class="form-control" placeholder="Conformation" required>
-	      </div>
-	      <div class="modal-footer">
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button> </br>
-		<button type="button" class="btn btn-block" data-dismiss="modal">Close</button>
-	      </div>
-	    </form>
-	  </div>
-	</div>
-      </div>
-
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-	  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	  <li data-target="#myCarousel" data-slide-to="1"></li>
-	    <li data-target="#myCarousel" data-slide-to="2"></li>
-	  </ol>
-
-	<div class="carousel-inner" role="listbox">
-	  <div class="item active">
-	    <img src="static/img1.jpg" alt="Img 1" width="1200" height="700">
-	  </div>
-	  <div class="item">
-	    <img src="static/img2.jpg" alt="Img 2" width="1200" height="700">
-	  </div>
-	  <div class="item">
-	    <img src="static/img3.jpg" alt="Img 3" width="1200" height="700">
-	  </div>
-	</div>
-
-	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	  <span class="sr-only">Previous</span>
-	</a>
-	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-	  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	  <span class="sr-only">Next</span>
-	</a>
-      </div>
-
-      {% if error %}
-      <p><strong>Error:</strong> {{ error }} </p>
-      {% endif %}
-      
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      {% for message in messages %}
-      <p> {{ message }} </p>
-      {% endfor %}
-      {% endif %}
-      {% endwith %}
-      
-      <div id="description" class="container text-cetner">
-	<h3>WHAT IS THIS SITE</h3>
-	<p><em>We love organizing clothes!</em></p>
-	<p>Is you closet a raving mess? Do you never know what to wear in the mornings? Well, this is the site for you then! We've created this site in order to document all your clothing and prepare outfits in advance so you never need to worry again...</p>
-	<br>
-      </div>
-      
-      <div id="members" class="bg-1">
-	<div class="container">
-	  <h3 class="text-center">WHO ARE WE</h3>
-	  <div class="row">
-	    <div class="col-sm-3">
-	      <p class="text-center"><center><strong>Manahal</strong></center></p><br>
-	      <a href="#manahal" data-toggle="collapse">
-		<center><img src="static/img4.jpg" class="img-circle person" alt="Random Name" width="150" height="150"></center>
-	      </a>
-	      <div id="manahal" class="collapse">
-		<p>Guitarist and Lead Vocalist</p>
-		<p>Loves long walks on the beach</p>
-		<p>Member since 1988</p>
-	      </div>
-	    </div>
-	    <div class="col-sm-3">
-	      <p class="text-center"><center><strong>Clive</strong></center></p><br>
-	      <a href="#clive" data-toggle="collapse">
-		<center><img src="static/img4.jpg" class="img-circle person" alt="Random Name" width="150" height="150"></center>
-	      </a>
-	      <div id="clive" class="collapse">
-		<p>Guitarist and Lead Vocalist</p>
-		<p>Loves long walks on the beach</p>
-		<p>Member since 1988</p>
-	      </div>
-	    </div>
-	    <div class="col-sm-3">
-	      <p class="text-center"><center><strong>Sasha</strong></center></p><br>
-	      <a href="#sasha" data-toggle="collapse">
-		<center><img src="static/img4.jpg" class="img-circle person" alt="Random Name" width="150" height="150"></center>
-	      </a>
-	      <div id="sasha" class="collapse">
-		<p>Guitarist and Lead Vocalist</p>
-		<p>Loves long walks on the beach</p>
-		<p>Member since 1988</p>
-	      </div>
-	    </div>
-	    <div class="col-sm-3">
-	      <p class="text-center"><center><strong>Yuqi</strong></center></p><br>
-	      <a href="#yuqi" data-toggle="collapse">
-		<center><img src="static/img4.jpg" class="img-circle person" alt="Random Name" width="150" height="150"></center>
-	      </a>
-	      <div id="yuqi" class="collapse">
-		<p>Guitarist and Lead Vocalist</p>
-		<p>Loves long walks on the beach</p>
-		<p>Member since 1988</p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-      </div>
-      <div id="contact" class="container">
-	<h3 class="text-center">CONTACT</h3>
-	<p class="text-center"><em>We would love to hear from you guys!</em></p>
-	<div class="row">
-	  <div class="col-md-12">
-	    <div class="row">
-              <div class="col-sm-6 form-group">
-		<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-              </div>
-              <div class="col-sm-6 form-group">
-		<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-              </div>
-	    </div>
-	    <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-	    <br>
-	    <div class="row">
-              <div class="col-md-12 form-group">
-		<button class="btn pull-right" type="submit">Send</button>
-              </div>
-	    </div>
-	  </div>
-	</div>
-      </div>
-      <div class="bg-1">
-	<footer class="text-center">
-	  <br>
-	  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-	    <span class="glyphicon glyphicon-chevron-up"></span>
-	  </a><br><br>
-	  <p>Closet Organizer</p>
-	  <br>
-	</footer>
-      </div>
-    </body>
+    </nav>
+    <br>
+    <br>
+    <br>
+  </body>
 </html>
