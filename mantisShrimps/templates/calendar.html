@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <title>
@@ -67,35 +68,47 @@
       </div>
     </nav>
     
-    <br><br><br>
+    <br><br>
 
-    <div id="cal">
-      <div class="header">
-	<span class="left button" id="prev"> &lang; </span>
-	<span class="month-year" id="label"> May 2018 </span>
-	<span class="right button" id="next"> &rang; </span>
+    <div class="row">
+      <div class="col-sm-3" align="center"> <br>
+	<a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" width="200px">NEW YORK WEATHER</a>
+	<script>
+	  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+	</script>
       </div>
-      <table id="days">
-	<tr>
-	  <td class="w">sun</td>
-	  <td class="w">mon</td>
-	  <td class="w">tue</td>
-	  <td class="w">wed</td>
-	  <td class="w">thu</td>
-	  <td class="w">fri</td>
-	  <td class="w">sat</td>
-	</tr>
-      </table>
-      <div id="cal-frame">
-	<table class="curr">
-	  <tr><td class="nil d"></td><td class="nil d"></td><td class="d">1</td><td class="d">2</td><td class="d">3</td><td class="d">4</td><td class="d">5</td></tr>
-	  <tr><td class="d">6</td><td class="d">7</td><td class="d">8</td><td class="d">9</td><td class="d">10</td><td class="d">11</td><td class="d">12</td></tr>
-	  <tr><td class="d">13</td><td class="d">14</td><td class="d">15</td><td class="d">16</td><td class="d">17</td><td class="d">18</td><td class="d">19</td></tr>
-	  <tr><td class="d">20</td><td class="d">21</td><td class="d">22</td><td class="d">23</td><td class="d">24</td><td class="d">25</td><td class="d">26</td></tr>
-	  <tr><td class="d">27</td><td class="d">28</td><td class="d">29</td><td class="d">30</td><td class="d">31</td><td class="nil d"></td><td class="nil d"></td></tr>
-	</table>
+
+      <div class="col-sm-6">
+	<div id="cal">
+	  <div class="header">
+	    <span class="left button" id="prev"> &lang; </span>
+	    <span class="month-year" id="label"> May 2018 </span>
+	    <span class="right button" id="next"> &rang; </span>
+	  </div>
+	  <table id="days">
+	    <tr>
+	      <td class="w">sun</td>
+	      <td class="w">mon</td>
+	      <td class="w">tue</td>
+	      <td class="w">wed</td>
+	      <td class="w">thu</td>
+	      <td class="w">fri</td>
+	      <td class="w">sat</td>
+	    </tr>
+	  </table>
+	  <div id="cal-frame">
+	    <table class="curr">
+	      <tr><td class="nil d"></td><td class="nil d"></td><td class="d">1</td><td class="d">2</td><td class="d">3</td><td class="d">4</td><td class="d">5</td></tr>
+	      <tr><td class="d">6</td><td class="d">7</td><td class="d">8</td><td class="d">9</td><td class="d">10</td><td class="d">11</td><td class="d">12</td></tr>
+	      <tr><td class="d">13</td><td class="d">14</td><td class="d">15</td><td class="d">16</td><td class="d">17</td><td class="d">18</td><td class="d">19</td></tr>
+	      <tr><td class="d">20</td><td class="d">21</td><td class="d">22</td><td class="d">23</td><td class="d">24</td><td class="d">25</td><td class="d">26</td></tr>
+	      <tr><td class="d">27</td><td class="d">28</td><td class="d">29</td><td class="d">30</td><td class="d">31</td><td class="nil d"></td><td class="nil d"></td></tr>
+	    </table>
+	  </div>
+	</div>
       </div>
-    </div>
+
+      <div class="col-sm-3"> <br><br> Buttons to Create Clothes Go Here! </div>
 
   </body>
 
