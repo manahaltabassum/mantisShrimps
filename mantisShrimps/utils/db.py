@@ -1,4 +1,9 @@
 import sqlite3, hashlib   #enable control of an sqlite database
+from os import path
+
+f = path.dirname(__file__)
+
+print "DIR: " + f
 
 #add cloth to clothes
 def addCloth(user,Id, Type, labels, item, freq):
