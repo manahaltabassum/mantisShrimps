@@ -3,9 +3,14 @@ from utils.db import *
 from utils import weather
 import urllib, os, glob, hashlib
 from flask_dropzone import Dropzone
+from os import path
 app = Flask(__name__)
 dropzone = Dropzone(app)
 app.secret_key = os.urandom(32)
+
+f = path.dirname(__file__)
+
+print "DIR: " + f
 
 #================LOGIN HELPERS==============================
 #checks if the password matches the account referenced by the username

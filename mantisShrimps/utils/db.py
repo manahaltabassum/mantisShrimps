@@ -1,13 +1,12 @@
 import sqlite3, hashlib   #enable control of an sqlite database
 from os import path
 
-f = path.dirname(__file__)
+f = path.dirname(__file__) + "/../data/closet.db"
 
 print "DIR: " + f
 
 #add cloth to clothes
 def addCloth(user,Id, Type, labels, item, freq):
-    f = "data/closet.db"
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute('INSERT INTO items VALUES("%s", "%s", 0);' %(user,Id, Type, labels, item, freq) )
@@ -16,7 +15,6 @@ def addCloth(user,Id, Type, labels, item, freq):
 
 #add item to outfits
 def addOutfit(user, outName, item):
-    f = "data/closet.db"
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute('INSERT INTO outfits VALUES("%s", "%s", 0);' %(user, outName, item) )
@@ -25,7 +23,6 @@ def addOutfit(user, outName, item):
 
 #returns a list of clothes of same type the user have
 def getClothes(user, Type):
-    f = "data/closet.db"
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute('SELECT * FROM clothes WHERE username = "%s" AND type = "%s";' %(user, Type) )
@@ -35,7 +32,6 @@ def getClothes(user, Type):
     
 #returns a list of clothes the user have
 def itemlist(user, Type):
-    f = "data/closet.db"
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute('SELECT * FROM clothes WHERE username = "%s";' %(user) )
@@ -45,7 +41,6 @@ def itemlist(user, Type):
 
 #checks if the item being added is a duplicate
 def isunique(user,item):
-    f = "data/closet.db"
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute('SELECT item FROM items WHERE user = "%s";'  %(user) )
@@ -60,21 +55,19 @@ def isunique(user,item):
 
 #add the user to the database
 def adduser(user,password):
-	f = "data/closet.db"
 	db = sqlite3.connect(f)
 	c = db.cursor()
 	if get_pass(user) is None:
 		password = hashlib.sha224(password).hexdigest()
 		c.execute('INSERT INTO users VALUES("%s", "%s");' %(user, password))
-        db.commit()
-        db.close()
-        return True
+        	db.commit()
+        	db.close()
+        	return True
 	db.close()
 	return False
 
 #returns the password of the user
 def get_pass(user):
-    f = "data/closet.db"
     db = sqlite3.connect(f)
     c = db.cursor()
     c.execute('SELECT password FROM users WHERE username= "%s";' %(user))
@@ -145,7 +138,7 @@ def table_gen(c):
     c.execute(create_outhistory)
     print "\n" + create_outhistory + "\n" 
 #===========================================================================================
-db = sqlite3.connect("data/closet.db")
+db = sqlite3.connect(f)
 c = db.cursor()
 table_gen(c)
 db.commit()
