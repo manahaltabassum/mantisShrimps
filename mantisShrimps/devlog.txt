@@ -50,3 +50,6 @@ working on deploy
 wuY -- 2018-05-24 18:22:00
 finished deploy
 
+wuY -- 2018-05-30 14:05:35
+working on home.js
+
