@@ -121,7 +121,12 @@ def getClothes():
         data['bottom'] = getClothes( session['username'], "bottom" )
         data['shoes'] = getClothes( session['username'], "shoes" )
         return data
-                
+
+@app.route('/upload_clothing', methods=["POST"])
+def upload_clothing():
+        #addCloth(user,Id, Type, labels, item, freq)
+        return redirect (url_for('upload'))
+        
 
 #@app.route('/upload_helper')
 #def upload_helper():
