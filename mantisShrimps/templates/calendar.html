@@ -1,75 +1,8 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <title>
-    Welcome!
-  </title>
-  
-  <style>
-    .container {
-    padding: 40px 120px;
-    }
-    .navbar {
-    font-family: Montserrat, sans-serif !important;
-    margin-bottom: 0 !important;
-    background-color: #2d2d30 !important;
-    border: 0 !important;
-    font-size: 11px !important;
-    opacity: 1;
-    }
-    h3 {
-    margin: 10px 0 30px 0;
-    letter-spacing: 5px;
-    font-size: 20px;
-    color: #111;
-    text-align: center;
-    }
-    p {
-    text-align: center;
-    }
-    .bg-1 {
-    background: #2d2d30;
-    color: #bdbdbd;
-    }
-    .bg-1 h3 {
-    color: #fff;
-    }
-    .text-center {
-    align: center;
-    }
-  </style>
+{% block title %}Calendar{% endblock %}
 
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/calendar.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <style>
-  </style>
-
-  <body id="calendar">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-	<div class="navbar-header">
-	  <a class="navbar-brand" href="#userPage">Closet Organizer</a>
-	</div>
-	<ul class="nav navbar-nav navbar-right">
-	  <li><a href="/home"> My Closet </a></li>
-	  <li><a href=""> Outfit Creator </a></li>
-	  <li><a href="/calendar"> Calendar </a></li>
-	  <li><a href="/upload"> Upload </a></li>
-	  <li><a href=""> Logout </a></li>
-	</ul>
-      </div>
-    </nav>
-    
-    <br><br>
-
+{% block body %}
     <div class="row">
       <div class="col-sm-3" align="center"> <br>
 	<!--
@@ -145,8 +78,6 @@
 
       <div class="col-sm-3"> <br><br> Buttons to Create Clothes Go Here! </div>
 
-  </body>
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script src="static/calendar.js"></script>
   <script>
@@ -154,5 +85,4 @@
 
     cal.init();
   </script>
-  
-</html>
+  {% endblock %}

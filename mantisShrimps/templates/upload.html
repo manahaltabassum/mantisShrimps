@@ -1,65 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <title>
-    Uploading
-  </title>
+{% extends "base.html" %}
+
+{% block title %}Upload{% endblock %}
+
+{% block body %}
+<br>
+<br>
 {{ dropzone.load() }}
-  <style>
-    #div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-    }
-    .container {
-    padding: 40px 120px;
-    }
-    .navbar {
-    font-family: Montserrat, sans-serif !important;
-    margin-bottom: 0 !important;
-    background-color: #2d2d30 !important;
-    border: 0 !important;
-    font-size: 11px !important;
-    opacity: 1;
-    }
-  </style>
 
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="calendar.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <body id="uploadPage">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-	<div class="navbar-header">
-	  <a class="navbar-brand" href="#userPage">Closet Organizer</a>
-	</div>
-	<ul class="nav navbar-nav navbar-right">
-	  <li><a href="/home"> My Closet </a></li>
-	  <li><a href=""> Outfit Creator </a></li>
-	  <li><a href="/calendar"> Calendar </a></li>
-	  <li><a href="/upload"> Upload </a></li>
-	  <li><a href=""> Logout </a></li>
-	</ul>
-      </div>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <!-- <div id="upload" class="container text-center">
-	 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-	 </div>
-    </div> -->
-
-    <!--<script src="static/dropzone.js"> </script>
-    <link rel="stylesheet" type="text/css" href="static/dropzone.css"> -->
 {{ dropzone.create(action_view='upload') }}
-  </body>
-</html>
+{% endblock %}
+
 
