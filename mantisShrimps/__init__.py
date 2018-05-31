@@ -114,7 +114,7 @@ def upload():
                 f.save(os.path.join('data/img/', f.filename))
         return render_template("upload.html")
 
-@app_route('/getClothes', methods=["GET"])
+@app.route('/getClothes', methods=["GET"])
 def getClothes():
         data = {}
         data["top"] = getClothes( session['username'], "top" )
