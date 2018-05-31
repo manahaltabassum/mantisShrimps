@@ -5,10 +5,34 @@
 {% block body %}
 <br>
 <br>
-{{ dropzone.load() }}
+
+<link rel="stylesheet" href="//cdn.bootcss.com/dropzone/5.2.0/min/dropzone.min.css" type="text/css">
+<script src="//cdn.bootcss.com/dropzone/5.2.0/min/dropzone.min.js"></script>
+<script>
+  // var cleanFilename = function (name) {
+  //    return name.toLowerCase().replace(/[^\w]/gi, '');
+  // };
+  Dropzone.options.myDropzone = {
+  init: function() {this.on("drop", newClothing)},
+  uploadMultiple: false,
+  parallelUploads: 2,
+  paramName: "file", // The name that will be used to transfer the file
+  maxFilesize: 3, // MB
+  acceptedFiles: "image/*, audio/*, video/*, text/*, application/*",
+  maxFiles: null,
+  dictDefaultMessage: "Drop files here or click to upload.", // message display on drop area
+  dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
+  dictInvalidFileType: "You can't upload files of this type.",
+  dictFileTooBig: "File is too big {{filesize}}. Max filesize: {{maxFilesize}}MiB.",
+  dictResponseError: "Server error: {{statusCode}}",
+  dictMaxFilesExceeded: "Your can't upload any more files.",
+  // renameFilename: cleanFilename,
+  };
+</script>
 
 
 {{ dropzone.create(action_view='upload') }}
+<script src="static/upload.js"> </script>
 {% endblock %}
 
 
