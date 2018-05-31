@@ -115,7 +115,7 @@ def upload():
         return render_template("upload.html")
 
 @app_route('/getClothes', methods=["GET"])
-def getClothes:
+def getClothes():
         data = {}
         data["top"] = getClothes( session['username'], "top" )
         data['bottom'] = getClothes( session['username'], "bottom" )
