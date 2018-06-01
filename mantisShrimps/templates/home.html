@@ -64,5 +64,21 @@
     <br>
     <br>
     <br>
+    <form action="{{ url_for("") }}">
+      <select name="select_type">
+	<option value="top">Top</option>
+	<option value="bottom">Bottom</option>
+	<option value="shoes">Shoes</option>
+      </select>
+    </form>
+    <br>
+    {% set count = 1 %} 
+    {% for count in clothes|length %}
+    <img src="">
+    {% if ctr % 3 == 0 %}
+    <br>
+    {% endif %}
+    {% set ctr = ctr + 1 %}
+    {% endfor %}
   </body>
 </html>

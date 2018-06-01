@@ -117,10 +117,14 @@ def upload():
 @app.route('/getClothes', methods=["GET"])
 def getClothes():
         data = {}
-        data["top"] = getClothes( session['username'], "top" )
-        data['bottom'] = getClothes( session['username'], "bottom" )
-        data['shoes'] = getClothes( session['username'], "shoes" )
-        return data
+        select = request.form.get("select_type")
+        if select == 'top':
+                data["top"] = getClothes( session['username'], "top" )
+        elif select == 'bottom':
+                data['bottom'] = getClothes( session['username'], "bottom" )
+        else:
+                data['shoes'] = getClothes( session['username'], "shoes" )
+        return render_template("home.html", clothes=data, ctr=0 )
 
 @app.route('/upload_clothing', methods=["POST"])
 def upload_clothing():

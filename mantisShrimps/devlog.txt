@@ -56,3 +56,6 @@ working on home.js
 manahalT -- 2018-06-01 14:01:11
 worked on outfit creator page
 
+wY -- 2018-06-01 14:04:02
+working on home.html and getClothes route
+
