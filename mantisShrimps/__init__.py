@@ -8,9 +8,9 @@ app = Flask(__name__)
 dropzone = Dropzone(app)
 app.secret_key = os.urandom(32)
 
-f = path.dirname(__file__)
+g = path.dirname(__file__) + "/data/img/"
 
-print "DIR: " + f
+print "DIR: " + g
 
 #================LOGIN HELPERS==============================
 #checks if the password matches the account referenced by the username
@@ -111,7 +111,7 @@ def calendar_helper():
 def upload():
         if request.method == 'POST':
                 f = request.files.get('file')
-                f.save(os.path.join('data/img/', f.filename))
+                f.save(os.path.join("." + g, f.filename))
         return render_template("upload.html")
 
 '''
