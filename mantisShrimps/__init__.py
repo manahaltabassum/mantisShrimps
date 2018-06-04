@@ -114,6 +114,7 @@ def upload():
                 f.save(os.path.join('data/img/', f.filename))
         return render_template("upload.html")
 
+'''
 @app.route('/getClothes', methods=["GET"])
 def getClothes():
         data = {}
@@ -125,12 +126,17 @@ def getClothes():
         else:
                 data['shoes'] = getClothes( session['username'], "shoes" )
         return render_template("home.html", clothes=data, ctr=0 )
+'''
 
 @app.route('/upload_clothing', methods=["POST"])
 def upload_clothing():
         #addCloth(user,Id, Type, labels, item, freq)
         return redirect (url_for('upload'))
-        
+
+@app.route('/creator')
+def creator():
+        return render_template("creator.html")
+
 
 #@app.route('/upload_helper')
 #def upload_helper():
