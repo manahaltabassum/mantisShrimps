@@ -6,10 +6,10 @@ f = path.dirname(__file__) + "/../data/closet.db"
 print "DIR: " + f
 
 #add cloth to clothes
-def addCloth(user,Id, Type, labels, item, freq):
+def addCloth(user, typeC, clothName):
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute('INSERT INTO items VALUES("%s", "%s", 0);' %(user,Id, Type, labels, item, freq) )
+    c.execute('INSERT INTO clothes VALUES("%s", "%s", "%s");' %(user, typeC, clothName ))
     db.commit()
     db.close()
 
@@ -119,7 +119,7 @@ def table_gen(c):
     create_users = "CREATE TABLE IF NOT EXISTS users(username TEXT PRIMARY KEY, password TEXT);"
     
     
-    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, label TEXT, clothName TEXT, frequency INTEGER);"
+    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, clothName TEXT, frequency INTEGER);"
 
 
     create_outfits = "CREATE TABLE IF NOT EXISTS outfits(username TEXT, outName TEXT, id INTEGER, PRIMARY KEY(username, id));"
