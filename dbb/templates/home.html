@@ -75,7 +75,7 @@
     <br>
     {% set count = 1 %} 
     {% for count in clothes|length %}
-    <img src="">
+    <img src={{PATH}} + {count}>
     {% if ctr % 3 == 0 %}
     <br>
     {% endif %}
