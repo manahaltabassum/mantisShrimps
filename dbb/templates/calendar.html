@@ -3,10 +3,37 @@
 {% block title %}Calendar{% endblock %}
 
 {% block body %}
-    <div class="row">
-      <div class="col-sm-3" align="center"> <br>
-	<!--
-	<table class="table table-striped" align="right">
+<style>
+  .centerBlock {
+  display: table;
+  margin: auto;
+  align: center;
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 100% !important;
+  }
+
+  th, td {
+  padding: 8px;
+  }
+
+  tr: nth-child(even){
+  background-color: pink !important}
+
+  th {
+  background-color: #4CAF50;
+  color: white;
+  }
+  
+</style>
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-3" align="center"> <br>
+      <div class="centerBlock">
+	<br><br><br><br><br><br><br><br>
+	<table class="table table-reponsive table-striped table-bordered" align="right">
 	  <thead>
 	    <tr>
 	      <th scope="col">Day</th>
@@ -17,66 +44,86 @@
 	  </thead>
 	  <tbody>
 	    <tr>
-	      <th scope="row">Day</th>
-	      <td> Image </td>
+	      <td> Day </td>
+	      <td> Description </td>
+	      <td> Temperature </td>
+	      <td> Temp </td>
+	    </tr>
+	    <tr>
+	      <td> Day </td>
+	      <td> Desc </td>
 	      <td> Temp </td>
 	      <td> Temp </td>
 	    </tr>
 	    <tr>
-	      <th scope="row">Day</th>
-	      <td> Image </td>
+	      <td> Day </td>
+	      <td> Desc </td>
 	      <td> Temp </td>
 	      <td> Temp </td>
 	    </tr>
 	    <tr>
-	      <th scope="row">Day</th>
-	      <td> Image </td>
+	      <td> Day </td>
+	      <td> Desc </td>
+	      <td> Temp </td>
+	      <td> Temp </td>
+	    </tr>
+	    <tr>
+	      <td>Day</td>
+	      <td> Desc </td>
 	      <td> Temp </td>
 	      <td> Temp </td>
 	    </tr>
 	  </tbody>
 	</table>
-	-->
-	    
-	    
-	<a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" width="200px">NEW YORK WEATHER</a>
-	<script>
-	  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-	</script>
-	
       </div>
+    </div>
+    
+    
+    <!--   
+	   <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" width="200px">NEW YORK WEATHER</a>
+	   <script>
+	     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+	   </script>
+  </div>
+  -->
 
-      <div class="col-sm-6">
-	<div id="cal">
-	  <div class="header">
-	    <span class="left button" id="prev"> &lang; </span>
-	    <span class="month-year" id="label"> May 2018 </span>
-	    <span class="right button" id="next"> &rang; </span>
-	  </div>
-	  <table id="days">
-	    <tr>
-	      <td class="w">sun</td>
-	      <td class="w">mon</td>
-	      <td class="w">tue</td>
-	      <td class="w">wed</td>
-	      <td class="w">thu</td>
-	      <td class="w">fri</td>
-	      <td class="w">sat</td>
-	    </tr>
+    <div class="col-sm-6">
+      <div id="cal">
+	<div class="header">
+	  <span class="left button" id="prev"> &lang; </span>
+	  <span class="month-year" id="label"> May 2018 </span>
+	  <span class="right button" id="next"> &rang; </span>
+	</div>
+	<table id="days">
+	  <tr>
+	    <td class="w">sun</td>
+	    <td class="w">mon</td>
+	    <td class="w">tue</td>
+	    <td class="w">wed</td>
+	    <td class="w">thu</td>
+	    <td class="w">fri</td>
+	    <td class="w">sat</td>
+	  </tr>
+	</table>
+	<div id="cal-frame">
+	  <table class="curr">
+	    <tr><td class="nil d"></td><td class="nil d"></td><td class="d">1</td><td class="d">2</td><td class="d">3</td><td class="d">4</td><td class="d">5</td></tr>
+	    <tr><td class="d">6</td><td class="d">7</td><td class="d">8</td><td class="d">9</td><td class="d">10</td><td class="d">11</td><td class="d">12</td></tr>
+	    <tr><td class="d">13</td><td class="d">14</td><td class="d">15</td><td class="d">16</td><td class="d">17</td><td class="d">18</td><td class="d">19</td></tr>
+	    <tr><td class="d">20</td><td class="d">21</td><td class="d">22</td><td class="d">23</td><td class="d">24</td><td class="d">25</td><td class="d">26</td></tr>
+	    <tr><td class="d">27</td><td class="d">28</td><td class="d">29</td><td class="d">30</td><td class="d">31</td><td class="nil d"></td><td class="nil d"></td></tr>
 	  </table>
-	  <div id="cal-frame">
-	    <table class="curr">
-	      <tr><td class="nil d"></td><td class="nil d"></td><td class="d">1</td><td class="d">2</td><td class="d">3</td><td class="d">4</td><td class="d">5</td></tr>
-	      <tr><td class="d">6</td><td class="d">7</td><td class="d">8</td><td class="d">9</td><td class="d">10</td><td class="d">11</td><td class="d">12</td></tr>
-	      <tr><td class="d">13</td><td class="d">14</td><td class="d">15</td><td class="d">16</td><td class="d">17</td><td class="d">18</td><td class="d">19</td></tr>
-	      <tr><td class="d">20</td><td class="d">21</td><td class="d">22</td><td class="d">23</td><td class="d">24</td><td class="d">25</td><td class="d">26</td></tr>
-	      <tr><td class="d">27</td><td class="d">28</td><td class="d">29</td><td class="d">30</td><td class="d">31</td><td class="nil d"></td><td class="nil d"></td></tr>
-	    </table>
-	  </div>
 	</div>
       </div>
+    </div>
 
-      <div class="col-sm-3"> <br><br> Buttons to Create Clothes Go Here! </div>
+    <div class="col-sm-3">
+      <br><br><br><br><br>
+      Buttons to Create Clothes Go Here!
+      <button type="button" class="btn btn-primary btn-lg">Create Outfit</button>
+      
+    </div>
+  </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script src="static/calendar.js"></script>
