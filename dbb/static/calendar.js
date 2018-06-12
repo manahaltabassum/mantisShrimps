@@ -30,7 +30,7 @@ var addEventToDate = function(){
 }
 
 var getDate = function(e){
-ff    //console.log(this.innerHTML);
+    //console.log(this.innerHTML);
     //console.log(month_year.innerHTML);
     var day = String(this.innerHTML);
     var monthyear = month_year.innerHTML;
