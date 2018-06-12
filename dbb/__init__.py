@@ -180,7 +180,16 @@ def add_outfit():
         #return str([topID, pantID, shoeID])
         #return str([topSelect, pantSelect, shoeSelect])
         #return "hi"
-        
+
+@app.route('/d3_helper')
+def helper():
+        l = []
+        types = ["top", "pants", "shoes"]
+        for x in types:
+                l.append(len(getClothes(session["username"], x)))
+        return str(l)
+                
+                
 
 
 

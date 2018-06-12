@@ -2,7 +2,7 @@ var data = "testD"
 
 /*var getData = function(){
     $.ajax({
-	url: "/calendar_helper",
+	url: "/d3_helper",
 	type: "GET",
 	data: {},
 	success: function(d){
