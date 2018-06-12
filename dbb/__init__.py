@@ -63,7 +63,7 @@ def root():
 def home():
 	if in_session():
 		print "you are in session"
-                return render_template('home.html')
+                return redirect(url_for('home_display'))
 	else:
 	        return redirect(url_for('root'))
 
@@ -128,21 +128,27 @@ def upload():
         return render_template("upload.html")
 
 
-@app.route('/getClothes', methods=["GET"])
-def getClothes():
+@app.route('/home_display', methods=["GET","POST"])
+def home_display():
         data = {}
         PATH = g
         select = request.form.get("select_type")
-        if select == 'top':
-		print "type is top"
-                data["top"] = getClothes( session['username'], "top" )
-        elif select == 'bottom':
+	if select == None:
+		select = request.args.get("select_type")
+	print select
+        if select == 'bottom':
 		print "type is bottom"
-                data['bottom'] = getClothes( session['username'], "bottom" )
-        else:
+                data = getClothes( session['username'], "bottom" )
+        elif select == "shoes":
 		print "type is shoes"
-                data['shoes'] = getClothes( session['username'], "shoes" )
-        return render_template("home.html",PATH=g, clothes=data, ctr=0 )
+                data = getClothes( session['username'], "shoes" )
+	else:
+		print "type is top"
+                data = getClothes( session['username'], "top" )
+	clothes = []
+	for thing in data:
+		clothes.append(g + str(thing[1]) + '.' + thing[4] )
+        return render_template("home.html",PATH=g, clothes=clothes, ctr=0 )
 
 
 @app.route('/upload_clothing', methods=["GET"])

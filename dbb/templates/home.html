@@ -64,17 +64,19 @@
     <br>
     <br>
     <br>
-    <form action="{{ url_for("home") }}">
+    <form action="{{ url_for('home_display') }}" method="POST">
       <select name="select_type">
 	<option value="top">Top</option>
 	<option value="bottom">Bottom</option>
 	<option value="shoes">Shoes</option>
       </select>
+      <button type="submit"> Go </button>
     </form>
     <br>
+
     {% set count = 1 %} 
     {% for cloth in clothes %}
-    <img src={{PATH}} + {cloth}>
+    <img src={{cloth}} style="width:500px;height:500px;">
     {% if count % 3 == 0 %}
     <br>
     {% endif %}
