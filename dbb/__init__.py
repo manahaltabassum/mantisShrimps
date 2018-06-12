@@ -62,6 +62,7 @@ def root():
 @app.route('/home',methods=['GET','POST'])
 def home():
 	if in_session():
+		print "you are in session"
                 return render_template('home.html')
 	else:
 	        return redirect(url_for('root'))
@@ -74,6 +75,7 @@ def login_auth():
     if usr != '':
         if match(usr,pwd):
                 login_db(usr,pwd)
+		print "you are log in!"
                 flash("You have successfully logged in!!!")
                 return redirect( url_for('home') )
         flash("Invalid Username/Password")
@@ -125,20 +127,23 @@ def upload():
                 f.save(os.path.join("." + g, str(clothId) + "." + extension))
         return render_template("upload.html")
 
-'''
+
 @app.route('/getClothes', methods=["GET"])
 def getClothes():
         data = {}
         PATH = g
         select = request.form.get("select_type")
         if select == 'top':
+		print "type is top"
                 data["top"] = getClothes( session['username'], "top" )
         elif select == 'bottom':
+		print "type is bottom"
                 data['bottom'] = getClothes( session['username'], "bottom" )
         else:
+		print "type is shoes"
                 data['shoes'] = getClothes( session['username'], "shoes" )
-        return render_template("home.html", ,PATH=g, clothes=data, ctr=0 )
-'''
+        return render_template("home.html",PATH=g, clothes=data, ctr=0 )
+
 
 @app.route('/upload_clothing', methods=["GET"])
 def upload_clothing():

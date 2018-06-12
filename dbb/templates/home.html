@@ -57,15 +57,14 @@
 	  <li><a href="/creator"> Outfit Creator </a></li>
 	  <li><a href="/calendar"> Calendar </a></li>
 	  <li><a href="/upload"> Upload </a></li>
-	  <li><a href=""> Logout </a></li>
+	  <li><a href="/logout"> Logout </a></li>
 	</ul>
       </div>
     </nav>
     <br>
     <br>
     <br>
-    <!--
-    <form action="{{ url_for("") }}">
+    <form action="{{ url_for("home") }}">
       <select name="select_type">
 	<option value="top">Top</option>
 	<option value="bottom">Bottom</option>
@@ -74,12 +73,12 @@
     </form>
     <br>
     {% set count = 1 %} 
-    {% for count in clothes|length %}
-    <img src={{PATH}} + {count}>
-    {% if ctr % 3 == 0 %}
+    {% for cloth in clothes %}
+    <img src={{PATH}} + {cloth}>
+    {% if count % 3 == 0 %}
     <br>
     {% endif %}
     {% set ctr = ctr + 1 %}
-    {% endfor %}-->
+    {% endfor %}
   </body>
 </html>
