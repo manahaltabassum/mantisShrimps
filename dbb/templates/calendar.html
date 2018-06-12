@@ -26,13 +26,27 @@
   background-color: #4CAF50;
   color: white;
   }
+
+  h3 {
+  font: "Helvetica Neue", Helvetica, Arial, san-serif;
+  opacity: 1;
+  letter-spacing: 0px;
+  word-spacing: 3px !important;
+  text-transform: uppercase;
+  }
+
+  .weather{
+  margin-right: 50px !important;
+  }
   
 </style>
 <div class="container-fluid text-center">
   <div class="row">
     <div class="col-sm-3" align="center"> <br>
       <div class="centerBlock">
-	<br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br>
+	<h3>Upcoming Weather</h3>
+	<br>
 	<table class="table table-reponsive table-striped table-bordered" align="right">
 	  <thead>
 	    <tr>
@@ -88,10 +102,11 @@
   -->
 
     <div class="col-sm-6">
+      <br><br>
       <div id="cal">
 	<div class="header">
 	  <span class="left button" id="prev"> &lang; </span>
-	  <span class="month-year" id="label"> May 2018 </span>
+	  <span class="month-year" id="label"> June 2018 </span>
 	  <span class="right button" id="next"> &rang; </span>
 	</div>
 	<table id="days">
@@ -107,21 +122,25 @@
 	</table>
 	<div id="cal-frame">
 	  <table class="curr">
-	    <tr><td class="nil d"></td><td class="nil d"></td><td class="d">1</td><td class="d">2</td><td class="d">3</td><td class="d">4</td><td class="d">5</td></tr>
-	    <tr><td class="d">6</td><td class="d">7</td><td class="d">8</td><td class="d">9</td><td class="d">10</td><td class="d">11</td><td class="d">12</td></tr>
-	    <tr><td class="d">13</td><td class="d">14</td><td class="d">15</td><td class="d">16</td><td class="d">17</td><td class="d">18</td><td class="d">19</td></tr>
-	    <tr><td class="d">20</td><td class="d">21</td><td class="d">22</td><td class="d">23</td><td class="d">24</td><td class="d">25</td><td class="d">26</td></tr>
-	    <tr><td class="d">27</td><td class="d">28</td><td class="d">29</td><td class="d">30</td><td class="d">31</td><td class="nil d"></td><td class="nil d"></td></tr>
+	    <tr><td class="nil d"></td><td class="nil d"></td><td class="nil d"></td><td class="nil d"></td><td class="nil d"></td><td class="d">1</td><td class="d">2</td></tr>
+	    <tr><td class="d">3</td><td class="d">4</td><td class="d">5</td><td class="d">6</td><td class="d">7</td><td class="d">8</td><td class="d">9</td></tr>
+	    <tr><td class="d">10</td><td class="d">11</td><td class="d">12</td><td class="d">13</td><td class="d">14</td><td class="d">15</td><td class="d">16</td></tr>
+	    <tr><td class="d">17</td><td class="d">18</td><td class="d">19</td><td class="d">20</td><td class="d">21</td><td class="d">22</td><td class="d">23</td></tr>
+	    <tr><td class="d">24</td><td class="d">25</td><td class="d">26</td><td class="d">27</td><td class="d">28</td><td class="d">29</td><td class="d">30</td></tr>
 	  </table>
 	</div>
       </div>
     </div>
 
     <div class="col-sm-3">
-      <br><br><br><br><br>
-      Buttons to Create Clothes Go Here!
+      <br><br><br><br><br><br><br><br><br>
+      <h3>Create An Outfit For</h3>
+      <br>
+      <h2 id="date"><strong> Select Date </strong></h2>
+      <br>
+      <br>
       <button type="button" class="btn btn-primary btn-lg">Create Outfit</button>
-      
+     <br><br><br> 
     </div>
   </div>
 

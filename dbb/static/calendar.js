@@ -16,6 +16,7 @@ getData()
 
 
 var month_year = document.getElementById("label");
+
 var addEventToDate = function(){
     var date = document.getElementsByClassName("d");
     console.log(date);
@@ -23,12 +24,18 @@ var addEventToDate = function(){
     for (i = 0; i < date.length; i++) {
 	//console.log(date[i].innerHTML);
 	//console.log(date[i]);
-	date[i].addEventListener("click", function(){console.log(this.innerHTML); console.log(month_year.innerHTML);});
+	date[i].addEventListener("click", getDate);
     }
 }
 
 var getDate = function(e){
-    console.log(e.innerHTML);
+    //console.log(this.innerHTML);
+    //console.log(month_year.innerHTML);
+    var day = String(this.innerHTML);
+    var monthyear = month_year.innerHTML;
+    var date = day.concat(monthyear);
+    console.log(date);
+    return date;
 }
 
 var CALENDAR = function () {
