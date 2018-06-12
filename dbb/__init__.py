@@ -62,8 +62,7 @@ def root():
 @app.route('/home',methods=['GET','POST'])
 def home():
 	if in_session():
-		print "you are in session"
-                return redirect(url_for('home_display'))
+                return render_template('home.html')
 	else:
 	        return redirect(url_for('root'))
 
@@ -75,7 +74,6 @@ def login_auth():
     if usr != '':
         if match(usr,pwd):
                 login_db(usr,pwd)
-		print "you are log in!"
                 flash("You have successfully logged in!!!")
                 return redirect( url_for('home') )
         flash("Invalid Username/Password")
@@ -127,29 +125,20 @@ def upload():
                 f.save(os.path.join("." + g, str(clothId) + "." + extension))
         return render_template("upload.html")
 
-
-@app.route('/home_display', methods=["GET","POST"])
-def home_display():
+'''
+@app.route('/getClothes', methods=["GET"])
+def getClothes():
         data = {}
         PATH = g
         select = request.form.get("select_type")
-	if select == None:
-		select = request.args.get("select_type")
-	print select
-        if select == 'bottom':
-		print "type is bottom"
-                data = getClothes( session['username'], "bottom" )
-        elif select == "shoes":
-		print "type is shoes"
-                data = getClothes( session['username'], "shoes" )
-	else:
-		print "type is top"
-                data = getClothes( session['username'], "top" )
-	clothes = []
-	for thing in data:
-		clothes.append(g + str(thing[1]) + '.' + thing[4] )
-        return render_template("home.html",PATH=g, clothes=clothes, ctr=0 )
-
+        if select == 'top':
+                data["top"] = getClothes( session['username'], "top" )
+        elif select == 'bottom':
+                data['bottom'] = getClothes( session['username'], "bottom" )
+        else:
+                data['shoes'] = getClothes( session['username'], "shoes" )
+        return render_template("home.html", ,PATH=g, clothes=data, ctr=0 )
+'''
 
 @app.route('/upload_clothing', methods=["GET"])
 def upload_clothing():
@@ -167,6 +156,25 @@ def creator():
         )
 
 
+@app.route('/add_outfit', methods=["GET"])
+def add_outfit():
+        topSelect = int(request.args.get("topForm"))
+        pantSelect = int(request.args.get("pantForm"))
+        shoeSelect = int(request.args.get("shoeForm"))
+        tops = getClothes(session["username"], "top")
+        pants = getClothes(session["username"], "pants")
+        shoes = getClothes(session["username"], "shoes")
+        topID = tops[topSelect % len(tops)][1]
+        pantID = pants[pantSelect % len(pants)][1]
+        shoeID = shoes[shoeSelect % len(shoes)][1]
+        return str([topID, pantID, shoeID])
+#        return str([topSelect, pantSelect, shoeSelect])
+        #return "hi"
+        
+
+
+
+        
 @app.route('/logout')
 def logout():
         logout_db()
