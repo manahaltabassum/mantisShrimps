@@ -1,6 +1,11 @@
 import requests, json, datetime
+from os import path
 
-key = "901db038817e40bc4789ce2fc1dde133"
+#g = path.dirname(__file__)
+#print g
+
+key = open('data/api.txt', 'r').read()
+#key = "901db038817e40bc4789ce2fc1dde133"
 
 
 def weekly():
