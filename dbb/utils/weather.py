@@ -5,7 +5,6 @@ from os import path
 #print g
 
 key = open('data/api.txt', 'r').read()
-#key = "901db038817e40bc4789ce2fc1dde133"
 
 
 def weekly():
