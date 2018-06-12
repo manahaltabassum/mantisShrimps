@@ -1,4 +1,5 @@
 var data = "testD"
+var d = document.getElementById('date');
 
 /*var getData = function(){
     $.ajax({
@@ -36,6 +37,7 @@ var getDate = function(e){
     var monthyear = month_year.innerHTML;
     var date = day.concat(monthyear);
     console.log(date);
+    d.innerHTML = date;
     return date;
 }
 
