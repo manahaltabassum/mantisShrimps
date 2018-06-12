@@ -11,9 +11,16 @@ def weekly():
     #print data
     #for x in data:
       #  print datetime.datetime.fromtimestamp(x["time"]).strftime('%d')
-    d = {datetime.datetime.fromtimestamp(x["time"]).strftime('%d') : {"min" : x["temperatureLow"], "max" : x["temperatureHigh"], 'desc' : x["icon"]} for x in data}
-    #print d
+    d = {datetime.datetime.fromtimestamp(x["time"]).strftime('%d') :
+         {"min" : int(x["temperatureLow"]),
+          "max" : int(x["temperatureHigh"]),
+          'desc' : x["icon"].replace("-", " ").title()}
+         for x in data
+         }
+    keys = sorted(d.keys())
+    print keys
     
-    return d
+    #print d
+    return [keys, d]
 
 weekly()

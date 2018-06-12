@@ -1,6 +1,6 @@
-var data = "testD"
+keykefvar data = "testD"
 
-var getData = function(){
+/*var getData = function(){
     $.ajax({
 	url: "/calendar_helper",
 	type: "GET",
@@ -13,6 +13,7 @@ var getData = function(){
 };
 
 getData()
+*/
 
 
 var month_year = document.getElementById("label");
@@ -29,7 +30,7 @@ var addEventToDate = function(){
 }
 
 var getDate = function(e){
-    //console.log(this.innerHTML);
+ff    //console.log(this.innerHTML);
     //console.log(month_year.innerHTML);
     var day = String(this.innerHTML);
     var monthyear = month_year.innerHTML;

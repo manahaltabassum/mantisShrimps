@@ -51,42 +51,20 @@
 	  <thead>
 	    <tr>
 	      <th scope="col">Day</th>
-	      <th scope="col"> </th>
-	      <th scope="col">Max</th>
+	      <th scope="col">Description</th>
 	      <th scope="col">Min</th>
+	      <th scope="col">Max</th>
 	    </tr>
 	  </thead>
 	  <tbody>
+	    {% for day in keys %}
 	    <tr>
-	      <td> Day </td>
-	      <td> Description </td>
-	      <td> Temperature </td>
-	      <td> Temp </td>
+	      <td> {{day}} </td>
+	      <td> {{data[day]['desc']}} </td>
+	      <td> {{data[day]['min']}} </td>
+	      <td> {{data[day]['max']}} </td>
 	    </tr>
-	    <tr>
-	      <td> Day </td>
-	      <td> Desc </td>
-	      <td> Temp </td>
-	      <td> Temp </td>
-	    </tr>
-	    <tr>
-	      <td> Day </td>
-	      <td> Desc </td>
-	      <td> Temp </td>
-	      <td> Temp </td>
-	    </tr>
-	    <tr>
-	      <td> Day </td>
-	      <td> Desc </td>
-	      <td> Temp </td>
-	      <td> Temp </td>
-	    </tr>
-	    <tr>
-	      <td>Day</td>
-	      <td> Desc </td>
-	      <td> Temp </td>
-	      <td> Temp </td>
-	    </tr>
+	    {% endfor %}
 	  </tbody>
 	</table>
       </div>
@@ -152,3 +130,6 @@
     cal.init();
   </script>
   {% endblock %}
+
+
+  

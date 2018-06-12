@@ -101,11 +101,14 @@ def register_auth():
 
 @app.route('/calendar')
 def calendar():
-        return render_template("calendar.html")
+        d = weather.weekly()
+        return render_template("calendar.html", keys=d[0], data=d[1])
 
+'''
 @app.route('/calendar_helper')
 def calendar_helper():
        return str(weather.weekly())
+'''
 
 @app.route('/upload', methods=["GET", "POST"])
 def upload():
