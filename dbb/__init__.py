@@ -161,14 +161,19 @@ def add_outfit():
         topSelect = int(request.args.get("topForm"))
         pantSelect = int(request.args.get("pantForm"))
         shoeSelect = int(request.args.get("shoeForm"))
+        name = request.args.get("outfitName")
         tops = getClothes(session["username"], "top")
         pants = getClothes(session["username"], "pants")
         shoes = getClothes(session["username"], "shoes")
         topID = tops[topSelect % len(tops)][1]
         pantID = pants[pantSelect % len(pants)][1]
         shoeID = shoes[shoeSelect % len(shoes)][1]
-        return str([topID, pantID, shoeID])
-#        return str([topSelect, pantSelect, shoeSelect])
+        addOutfit(session["username"], name, topID)
+        addOutfit(session["username"], name, pantID)
+        addOutfit(session["username"], name, shoeID)
+        return redirect (url_for('creator'))
+        #return str([topID, pantID, shoeID])
+        #return str([topSelect, pantSelect, shoeSelect])
         #return "hi"
         
 
