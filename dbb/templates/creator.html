@@ -89,21 +89,13 @@
 
       <p style="text-align:center">Top</p>
       <div class="slideshow-container">
+	{% for top in tops %}
 	<div class="mySlides1">
-	  <img src="static/1.jpg" style="width:100%">
-	  <div class="text">Caption</div>
+	  <img src="static/img/{{top[1]}}.{{top[4]}}" style="width:100%">
+	  <div class="text">{{top[3]}}</div>
 	</div>
-
-	<div class="mySlides1">
-	  <img src="static/2.jpg" style="width:100%">
-	  <div class="text">Caption</div>
-	</div>
-
-	<div class="mySlides1">
-	  <img src="static/3.jpg" style="width:100%">
-	  <div class="text">Caption</div>
-	</div>
-
+	{% endfor %}
+	
 	<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
       </div>
@@ -111,20 +103,12 @@
 
       <p style="text-align:center">Bottom</p>
       <div class="slideshow-container">
+	{% for pant in pants %}
 	<div class="mySlides2">
-	  <img src="static/1.jpg" style="width:100%">
-	  <div class="text">Caption</div>
+	  <img src="static/img/{{pant[1]}}.{{pant[4]}}" style="width:100%">
+	  <div class="text">{{pant[3]}}</div>
 	</div>
-
-	<div class="mySlides2">
-	  <img src="static/2.jpg" style="width:100%">
-	  <div class="text">Caption</div>
-	</div>
-
-	<div class="mySlides2">
-	  <img src="static/3.jpg" style="width:100%">
-	  <div class="text">Caption</div>
-	</div>
+	{% endfor %}
 
 	<a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
@@ -133,21 +117,12 @@
       <br>
       <p style="text-align:center">Shoes</p>
       <div class="slideshow-container">
+	{% for shoe in shoes %}
 	<div class="mySlides3">
-	  <img src="static/1.jpg" style="width:100%">
-	  <div class="text">Caption</div>
+	  <img src="static/img/{{shoe[1]}}.{{shoe[4]}}" style="width:100%">
+	  <div class="text">{{shoe[3]}}</div>
 	</div>
-
-	<div class="mySlides3">
-	  <img src="static/2.jpg" style="width:100%">
-	  <div class="text">Caption</div>
-	</div>
-
-	<div class="mySlides3">
-	  <img src="static/3.jpg" style="width:100%">
-	  <div class="text">Caption</div>
-	</div>
-
+	{% endfor %}
 	<a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
       </div>

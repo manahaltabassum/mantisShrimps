@@ -11,10 +11,10 @@ def assignID():
 
 
 #add cloth to clothes
-def addCloth(user, typeC, clothName, clothId):
+def addCloth(user, typeC, clothName, clothId, extension):
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute('INSERT INTO clothes (username,type,clothName,id) VALUES("%s", "%s", "%s", "%s");' %(user, typeC, clothName, clothId))
+    c.execute('INSERT INTO clothes (username,type,clothName,id,extension) VALUES("%s", "%s", "%s", "%s", "%s");' %(user, typeC, clothName, clothId, extension))
     db.commit()
     db.close()
 
@@ -124,7 +124,7 @@ def table_gen(c):
     create_users = "CREATE TABLE IF NOT EXISTS users(username TEXT PRIMARY KEY, password TEXT);"
     
     
-    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY, type TEXT, clothName TEXT, frequency INTEGER);"
+    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY, type TEXT, clothName TEXT, extension TEXT, frequency INTEGER);"
 
 
     create_outfits = "CREATE TABLE IF NOT EXISTS outfits(username TEXT, outName TEXT, id INTEGER, PRIMARY KEY(username, id));"
@@ -150,3 +150,4 @@ db.commit()
 db.close()
 
     
+print getClothes("c", "top");

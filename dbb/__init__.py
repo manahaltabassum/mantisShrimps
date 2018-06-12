@@ -9,11 +9,12 @@ app = Flask(__name__)
 dropzone = Dropzone(app)
 app.secret_key = os.urandom(32)
 
-g = path.dirname(__file__) + "/data/img/"
+g = path.dirname(__file__) + "/static/img/"
 
 print "DIR: " + g
 
 clothId = 0
+extension = ""
 
 #================LOGIN HELPERS==============================
 #checks if the password matches the account referenced by the username
@@ -117,6 +118,7 @@ def calendar_helper():
 def upload():
         if request.method == 'POST':
                 f = request.files.get('file')
+                global extension
                 extension = f.filename.split(".")[-1]
                 global clothId
                 clothId = assignID()
@@ -143,12 +145,16 @@ def upload_clothing():
         name = request.args.get("name")
         typeC = request.args.get("type")
         #return name + typeC
-        addCloth("testtesttest", typeC, name, clothId)
+        addCloth(session["username"], typeC, name, clothId, extension)
         return redirect (url_for('upload'))
 
 @app.route('/creator')
 def creator():
-        return render_template("creator.html")
+        return render_template("creator.html", tops=getClothes(session["username"], "top"),
+                               shoes=getClothes(session["username"], "shoes"),
+                               pants=getClothes(session["username"], "pants")
+        )
+
 
 @app.route('/logout')
 def logout():
