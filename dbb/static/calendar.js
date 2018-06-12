@@ -1,4 +1,4 @@
-keykefvar data = "testD"
+var data = "testD"
 
 /*var getData = function(){
     $.ajax({

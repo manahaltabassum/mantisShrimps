@@ -65,3 +65,6 @@ outfit creator work
 manahalT -- 2018-06-11 19:59:26
 worked on calendar page styling
 
+manahalT -- 2018-06-12 02:52:14
+added d3 chart
+

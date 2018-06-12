@@ -61,76 +61,100 @@
   background-color: #f1f1f1;
   color: black;
   }
+
+  .chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 10px;
+  margin: 1px;
+  color: white;
+  }
+  
 </style>
-</head>
-<body>
 
-  <h2 style="text-align:center">Outfit Creator</h2>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-  <p style="text-align:center">Top</p>
-  <div class="slideshow-container">
-    <div class="mySlides1">
-      <img src="static/1.jpg" style="width:100%">
-      <div class="text">Caption</div>
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-3">
+      <br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br>
+      <h4 id="graph"> Item Distribution </h4>
+      <div class="chart" id="chartInfo">
+      </div>
     </div>
+    <div class="col-sm-6" align="center">
+      <h2 style="text-align:center">Outfit Creator</h2>
 
-    <div class="mySlides1">
-      <img src="static/2.jpg" style="width:100%">
-      <div class="text">Caption</div>
+      <p style="text-align:center">Top</p>
+      <div class="slideshow-container">
+	<div class="mySlides1">
+	  <img src="static/1.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<div class="mySlides1">
+	  <img src="static/2.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<div class="mySlides1">
+	  <img src="static/3.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+      </div>
+      <br>
+
+      <p style="text-align:center">Bottom</p>
+      <div class="slideshow-container">
+	<div class="mySlides2">
+	  <img src="static/1.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<div class="mySlides2">
+	  <img src="static/2.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<div class="mySlides2">
+	  <img src="static/3.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+      </div>
+
+      <br>
+      <p style="text-align:center">Shoes</p>
+      <div class="slideshow-container">
+	<div class="mySlides3">
+	  <img src="static/1.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<div class="mySlides3">
+	  <img src="static/2.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<div class="mySlides3">
+	  <img src="static/3.jpg" style="width:100%">
+	  <div class="text">Caption</div>
+	</div>
+
+	<a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+      </div>
     </div>
-
-    <div class="mySlides1">
-      <img src="static/3.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
   </div>
-  <br>
+</div>
 
-  <p style="text-align:center">Bottom</p>
-  <div class="slideshow-container">
-    <div class="mySlides2">
-      <img src="static/1.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <div class="mySlides2">
-      <img src="static/2.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <div class="mySlides2">
-      <img src="static/3.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
-  </div>
-
-  <br>
-  <p style="text-align:center">Shoes</p>
-  <div class="slideshow-container">
-    <div class="mySlides3">
-      <img src="static/1.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <div class="mySlides3">
-      <img src="static/2.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <div class="mySlides3">
-      <img src="static/3.jpg" style="width:100%">
-      <div class="text">Caption</div>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
-  </div>
-
-  <script src="static/creator.js"> </script>
-  {% endblock %}
+<script src="static/creator.js"></script>
+<script src="static/graph.js"></script>
+{% endblock %}
