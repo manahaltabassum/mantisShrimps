@@ -1,15 +1,20 @@
 import sqlite3, hashlib   #enable control of an sqlite database
 from os import path
+from random import randint
 
 f = path.dirname(__file__) + "/../data/closet.db"
 
 print "DIR: " + f
 
+def assignID():
+    return randint(0, 100000000000)
+
+
 #add cloth to clothes
-def addCloth(user, typeC, clothName):
+def addCloth(user, typeC, clothName, clothId):
     db = sqlite3.connect(f)
     c = db.cursor()
-    c.execute('INSERT INTO clothes VALUES("%s", "%s", "%s");' %(user, typeC, clothName ))
+    c.execute('INSERT INTO clothes (username,type,clothName,id) VALUES("%s", "%s", "%s", "%s");' %(user, typeC, clothName, clothId))
     db.commit()
     db.close()
 
@@ -119,7 +124,7 @@ def table_gen(c):
     create_users = "CREATE TABLE IF NOT EXISTS users(username TEXT PRIMARY KEY, password TEXT);"
     
     
-    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, clothName TEXT, frequency INTEGER);"
+    create_clothes = "CREATE TABLE IF NOT EXISTS clothes(username TEXT, id INTEGER PRIMARY KEY, type TEXT, clothName TEXT, frequency INTEGER);"
 
 
     create_outfits = "CREATE TABLE IF NOT EXISTS outfits(username TEXT, outName TEXT, id INTEGER, PRIMARY KEY(username, id));"

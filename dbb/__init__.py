@@ -4,6 +4,7 @@ from utils import weather
 import urllib, os, glob, hashlib
 from flask_dropzone import Dropzone
 from os import path
+from random import randint
 app = Flask(__name__)
 dropzone = Dropzone(app)
 app.secret_key = os.urandom(32)
@@ -11,6 +12,8 @@ app.secret_key = os.urandom(32)
 g = path.dirname(__file__) + "/data/img/"
 
 print "DIR: " + g
+
+clothId = 0
 
 #================LOGIN HELPERS==============================
 #checks if the password matches the account referenced by the username
@@ -114,7 +117,10 @@ def calendar_helper():
 def upload():
         if request.method == 'POST':
                 f = request.files.get('file')
-                f.save(os.path.join("." + g, f.filename))
+                extension = f.filename.split(".")[-1]
+                global clothId
+                clothId = assignID()
+                f.save(os.path.join("." + g, str(clothId) + "." + extension))
         return render_template("upload.html")
 
 '''
@@ -132,9 +138,12 @@ def getClothes():
         return render_template("home.html", ,PATH=g, clothes=data, ctr=0 )
 '''
 
-@app.route('/upload_clothing', methods=["POST"])
+@app.route('/upload_clothing', methods=["GET"])
 def upload_clothing():
-        #addCloth(user,Id, Type, labels, item, freq)
+        name = request.args.get("name")
+        typeC = request.args.get("type")
+        #return name + typeC
+        addCloth("testtesttest", typeC, name, clothId)
         return redirect (url_for('upload'))
 
 @app.route('/creator')
