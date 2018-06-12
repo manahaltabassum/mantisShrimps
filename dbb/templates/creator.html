@@ -14,9 +14,9 @@
   /* Slideshow container */
   .slideshow-container {
   max-width: 250px;
-  max-height: 250px;
+  max-height: 300px;
   position: relative;
-  margin: auto;
+  margin: 5px;
   }
 
   /* Caption text */
@@ -43,6 +43,11 @@
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  }
+
+  .prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
   }
 
   p {
@@ -86,7 +91,7 @@
     </div>
     <div class="col-sm-6" align="center">
       <h2 style="text-align:center">Outfit Creator</h2>
-      <p style="text-align:center">Top</p>
+      <!--<p style="text-align:center">Top</p>-->
       <div class="slideshow-container">
 	{% for top in tops %}
 	<div class="mySlides1">
@@ -100,7 +105,7 @@
       </div>
       <br>
 
-      <p style="text-align:center">Bottom</p>
+      <!--<p style="text-align:center">Bottom</p>-->
       <div class="slideshow-container">
 	{% for pant in pants %}
 	<div class="mySlides2">
@@ -114,7 +119,7 @@
       </div>
 
       <br>
-      <p style="text-align:center">Shoes</p>
+      <!--<p style="text-align:center">Shoes</p>-->
       <div class="slideshow-container">
 	{% for shoe in shoes %}
 	<div class="mySlides3">
@@ -124,7 +129,7 @@
 	{% endfor %}
 	<a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
-      </div>
+      </div>	    
     </div>
   </div>
 </div>
@@ -139,6 +144,8 @@
     </form>
   </center>
 </div>
+<br>
+<br>
 <script src="static/creator.js"></script>
 <script src="static/graph.js"></script>
 {% endblock %}
