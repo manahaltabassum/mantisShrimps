@@ -150,6 +150,12 @@ def upload_clothing():
 def creator():
         return render_template("creator.html")
 
+@app.route('/logout')
+def logout():
+        logout_db()
+        flash("Logged Out")
+        return redirect( url_for('root') )
+
 
 #@app.route('/upload_helper')
 #def upload_helper():
