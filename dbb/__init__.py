@@ -55,9 +55,9 @@ def logout_db():
 #=================AJAX HELPERS=====================
 @app.route("/outHist", methods = ["GET"])
 def outHist():
-        print "\n\n\n"
-        print getOutHist(session['username'])
-        print "\n\n\n"
+        #print "\n\n\n"
+        #print getOutHist(session['username'])
+        #print "\n\n\n"
         return str(getOutHist(session['username']))
 
         
@@ -165,14 +165,18 @@ def upload_clothing():
 
 @app.route('/creator')
 def creator():
+        date = request.args.get("date")
         return render_template("creator.html", tops=getClothes(session["username"], "top"),
                                shoes=getClothes(session["username"], "shoes"),
-                               pants=getClothes(session["username"], "pants")
+                               pants=getClothes(session["username"], "pants"),
+                               date = date
         )
 
 
 @app.route('/add_outfit', methods=["GET"])
 def add_outfit():
+        date = request.args.get("date")
+        print "date: " + date
         topSelect = int(request.args.get("topForm"))
         pantSelect = int(request.args.get("pantForm"))
         shoeSelect = int(request.args.get("shoeForm"))
@@ -186,6 +190,8 @@ def add_outfit():
         addOutfit(session["username"], name, topID)
         addOutfit(session["username"], name, pantID)
         addOutfit(session["username"], name, shoeID)
+        if (date != None):
+                addOutHist(session["username"], name, date)
         return redirect (url_for('creator'))
         #return str([topID, pantID, shoeID])
         #return str([topSelect, pantSelect, shoeSelect])
@@ -199,7 +205,7 @@ def helper():
                 l.append(len(getClothes(session["username"], x)))
         return str(l)
                 
-                
+
 
 
 

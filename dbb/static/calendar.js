@@ -2,6 +2,8 @@ var data = "testD"
 var d = document.getElementById('date');
 var createView = document.getElementById('createView');
 var message = document.getElementById("message");
+var formurl = document.getElementById("formurl");
+var hiddenDate = document.getElementById("hiddenDate");
 createView.setAttribute("disabled", "disabled")
 /*var getData = function(){
     $.ajax({
@@ -22,6 +24,7 @@ var outfitHistory = function(){
     $.ajax({
 	url: "/outHist",
 	type: "GET",
+	async: false,
 	data: {},
 	success: function(d){
 	    data = JSON.parse(d.replace(/'/g, '"').replace(/u"/g, '"'));
@@ -61,20 +64,24 @@ var getDate = function(e){
     d.innerHTML = date;
     keys = Object.keys(data);
     for (var i = 0; i < keys.length; i++) {
-	key = keys[i].split("-");
-	//console.log(key);
-	if ((key[0] == dateSplit[2]) && (key[2] == dateSplit[0])) {
-	    message.innerHTML = "You Already Have An Outfit For";
-	    createView.innerHTML = "View Outfit";
+	if (date == keys[i]) {
+	    message.innerHTML = "You Wore <e>" + data[keys[i]] + "<e> On"
+	    createView.innerHTML = "My Closet";
+	    formurl.setAttribute("action", "/home_display");
 	    return date;
-	    
 	}
     }
     createView.innerHTML = "Create Outfit";
+    hiddenDate.value = date;
     message.innerHTML = "Create An Outfit For";
+    formurl.setAttribute("action", "/creator");
     return date;
 }
 
+
+var newAction = function(e) {
+
+}
 var CALENDAR = function () {
     var wrap, label, 
 	months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
@@ -196,5 +203,7 @@ var CALENDAR = function () {
 };
 
 addEventToDate();
+
+createView.addEventListener('click', newAction);
 
 

@@ -16,10 +16,18 @@ def getOutHist(username):
     c.execute('SELECT date, outName FROM outfit_history WHERE username="%s";' %(username) )
     ans = {}; 
     for item in c:
+        print item
         ans[item[0]] = item[1]
         
     db.close()
     return ans;
+
+def addOutHist(user, outName, date):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    c.execute('INSERT INTO outfit_history VALUES("%s", "%s", "%s");' %(user, outName, date) )
+    db.commit()
+    db.close()
 
 #add cloth to clothes
 def addCloth(user, typeC, clothName, clothId, extension):
@@ -140,19 +148,19 @@ def table_gen(c):
 
     create_outfits = "CREATE TABLE IF NOT EXISTS outfits(username TEXT, outName TEXT, clothId INTEGER);"
 
-    create_outhistory = "CREATE TABLE IF NOT EXISTS outfit_history(username TEXT PRIMARY KEY, outName TEXT, date TEXT);"
+    create_outhistory = "CREATE TABLE IF NOT EXISTS outfit_history(username TEXT, outName TEXT, date TEXT);"
     
     c.execute(create_users)
-    print "\n" + create_users + "\n"
+    #print "\n" + create_users + "\n"
     
     c.execute(create_clothes)
-    print "\n" + create_clothes + "\n"
+   # print "\n" + create_clothes + "\n"
     
     c.execute(create_outfits)
-    print "\n" + create_outfits + "\n"
+   # print "\n" + create_outfits + "\n"
     
     c.execute(create_outhistory)
-    print "\n" + create_outhistory + "\n" 
+   # print "\n" + create_outhistory + "\n" 
 #===========================================================================================
 db = sqlite3.connect(f)
 c = db.cursor()
