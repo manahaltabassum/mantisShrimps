@@ -61,41 +61,15 @@
   <h3>Your Outfits</h3>
   <br>
   <div class="row">
+    {% for outfit in keys %}
     <div class="col-sm-2">
-      <img src="static/1.jpg" class="outfit img-rounded"><br>
-      <img src="static/2.jpg" class="outfit img-rounded"><br>
-      <img src="static/3.jpg" class="outfit img-rounded">
-      <p>Outfit Name</p>
-      <p>Date</p>
+      <img src="static/img/{{outfits[outfit][0]}}" class="outfit img-rounded"><br>
+      <img src="static/img/{{outfits[outfit][1]}}" class="outfit img-rounded"><br>
+      <img src="static/img/{{outfits[outfit][2]}}" class="outfit img-rounded">
+      <p>{{outfit}}</p>
+      <p>{{outfits[outfit][4]}}</p>
     </div>
-    <div class="col-sm-2">
-      <img src="static/1.jpg" class="outfit img-rounded"><br>
-      <img src="static/2.jpg" class="outfit img-rounded"><br>
-      <img src="static/3.jpg" class="outfit img-rounded">
-      <p>Outfit Name</p>
-      <p>Date</p>
-    </div>
-    <div class="col-sm-2">
-      <img src="static/1.jpg" class="outfit img-rounded"><br>
-      <img src="static/2.jpg" class="outfit img-rounded"><br>
-      <img src="static/3.jpg" class="outfit img-rounded">
-      <p>Outfit Name</p>
-      <p>Date</p>
-    </div>
-    <div class="col-sm-2">
-      <img src="static/1.jpg" class="outfit img-rounded"><br>
-      <img src="static/2.jpg" class="outfit img-rounded"><br>
-      <img src="static/3.jpg" class="outfit img-rounded">
-      <p>Outfit Name</p>
-      <p>Date</p>
-    </div>
-    <div class="col-sm-2">
-      <img src="static/1.jpg" class="outfit img-rounded"><br>
-      <img src="static/2.jpg" class="outfit img-rounded"><br>
-      <img src="static/3.jpg" class="outfit img-rounded">
-      <p>Outfit Name</p>
-      <p>Date</p>
-    </div>
+    {% endfor %}
   </div>
 </div>
     

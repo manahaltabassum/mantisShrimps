@@ -28,14 +28,14 @@ def getOutfits(username):
     outfits = c.execute('SELECT * FROM outfits WHERE username="%s";' %(username))
     my_dict = {}
     for entry in outfits:
-        print entry
+        #print entry
         if entry[1] in my_dict:
             my_dict[entry[1]].append(entry[2])
         else:
             my_dict[entry[1]] = [entry[2]]
     dates = c.execute('SELECT * FROM outfit_history WHERE username="%s";' %(username))
     for entry in dates:
-        print entry[2]
+        #print entry[2]
         if entry[1] in my_dict:
             my_dict[entry[1]].append(entry[2])
     exten = c.execute('SELECT * FROM clothes WHERE username="%s";' %(username))
@@ -44,10 +44,19 @@ def getOutfits(username):
             for val in my_dict[key]:
                 if (val == entry[1]):
                     my_dict[key].append(entry[4])
-    print my_dict
+    for entry in my_dict:
+        print entry
+        data = my_dict[entry]
+        my_dict[entry] = [str(data[0]) + "." + data[4],
+                          str(data[1]) + "." + data[5],
+                          str(data[2]) + "." + data[6],
+                          data[3]
+                          ]
+    #print my_dict
     db.close()
-    return outfits
+    return my_dict
 
+print getOutfits("c")
 def addOutHist(user, outName, date):
     db = sqlite3.connect(f)
     c = db.cursor()

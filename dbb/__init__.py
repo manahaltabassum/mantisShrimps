@@ -153,7 +153,8 @@ def home_display():
 	clothes = []
 	for thing in data:
 		clothes.append(g + str(thing[1]) + "." + thing[4] )
-        return render_template("home.html", PATH=g, clothes=clothes, ctr=0 )
+        outfits = getOutfits(session["username"])
+        return render_template("home.html", PATH=g, clothes=clothes, ctr=0, outfits=outfits, keys=outfits.keys() )
 
 
 @app.route('/upload_clothing', methods=["GET"])
