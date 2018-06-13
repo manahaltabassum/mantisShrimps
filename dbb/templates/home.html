@@ -63,9 +63,9 @@
   <div class="row">
     {% for outfit in keys %}
     <div class="col-sm-2">
-      <img src="static/img/{{outfits[outfit][0]}}" class="outfit img-rounded"><br>
-      <img src="static/img/{{outfits[outfit][1]}}" class="outfit img-rounded"><br>
-      <img src="static/img/{{outfits[outfit][2]}}" class="outfit img-rounded">
+      <img src="{{PATH}}{{outfits[outfit][0]}}" class="outfit img-rounded"><br>
+      <img src="{{PATH}}{{outfits[outfit][1]}}" class="outfit img-rounded"><br>
+      <img src="{{PATH}}{{outfits[outfit][2]}}" class="outfit img-rounded">
       <p>{{outfit}}</p>
       <p>{{outfits[outfit][4]}}</p>
     </div>

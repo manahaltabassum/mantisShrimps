@@ -100,3 +100,6 @@ added image of myself to root.html
 cliveJ -- 2018-06-13 04:00:00
 made video
 
+wuY -- 2018-06-13 07:47:09
+changed directory path
+
