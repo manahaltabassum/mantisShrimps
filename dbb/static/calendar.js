@@ -1,6 +1,8 @@
 var data = "testD"
 var d = document.getElementById('date');
-
+var createView = document.getElementById('createView');
+var message = document.getElementById("message");
+createView.setAttribute("disabled", "disabled")
 /*var getData = function(){
     $.ajax({
 	url: "/d3_helper",
@@ -20,13 +22,17 @@ var outfitHistory = function(){
     $.ajax({
 	url: "/outHist",
 	type: "GET",
-	data: "stuff",
+	data: {},
 	success: function(d){
-	    console.log(d);
+	    data = JSON.parse(d.replace(/'/g, '"').replace(/u"/g, '"'));
+	    //console.log("data: " + data)
 	}
     });
 };
 
+//console.log("data " + data);
+//outfitHistory()
+//console.log("data " + data);
 var month_year = document.getElementById("label");
 
 var addEventToDate = function(){
@@ -41,14 +47,31 @@ var addEventToDate = function(){
 }
 
 var getDate = function(e){
+    outfitHistory();
+    console.log(data);
+    createView.removeAttribute("disabled");
     //console.log(this.innerHTML);
     //console.log(month_year.innerHTML);
     var day = String(this.innerHTML);
     var monthyear = month_year.innerHTML;
     var date = day.concat(monthyear);
     console.log(date);
+    dateSplit = date.split(" ");
+    //console.log(dateSplit);
     d.innerHTML = date;
-    outfitHistory();
+    keys = Object.keys(data);
+    for (var i = 0; i < keys.length; i++) {
+	key = keys[i].split("-");
+	//console.log(key);
+	if ((key[0] == dateSplit[2]) && (key[2] == dateSplit[0])) {
+	    message.innerHTML = "You Already Have An Outfit For";
+	    createView.innerHTML = "View Outfit";
+	    return date;
+	    
+	}
+    }
+    createView.innerHTML = "Create Outfit";
+    message.innerHTML = "Create An Outfit For";
     return date;
 }
 

@@ -56,9 +56,9 @@ def logout_db():
 @app.route("/outHist", methods = ["GET"])
 def outHist():
         print "\n\n\n"
-        print getOutHist(unicode(session.get('username')))
+        print getOutHist(session['username'])
         print "\n\n\n"
-        return getOutHist(session.get('username'))
+        return str(getOutHist(session['username']))
 
         
 #==================================================
