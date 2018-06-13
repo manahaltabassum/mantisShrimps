@@ -10,6 +10,7 @@ dropzone = Dropzone(app)
 app.secret_key = os.urandom(32)
 
 g = path.dirname(__file__) + "/static/img/"
+h = path.dirname(__file__) + "/static/"
 
 print "DIR: " + g
 
@@ -67,7 +68,7 @@ def root():
 	if in_session():	
                 return redirect( url_for('home') )
 	else:
-	        return render_template("root.html")
+	        return render_template("root.html", PATH=h)
 
 @app.route('/home',methods=['GET','POST'])
 def home():
