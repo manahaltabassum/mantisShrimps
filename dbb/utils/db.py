@@ -38,6 +38,12 @@ def getOutfits(username):
         print entry[2]
         if entry[1] in my_dict:
             my_dict[entry[1]].append(entry[2])
+    exten = c.execute('SELECT * FROM clothes WHERE username="%s";' %(username))
+    for entry in exten:
+        for key in my_dict:
+            for val in my_dict[key]:
+                if (val == entry[1]):
+                    my_dict[key].append(entry[4])
     print my_dict
     db.close()
     return outfits
