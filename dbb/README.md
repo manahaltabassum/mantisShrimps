@@ -15,3 +15,5 @@ This website is meant to act as a closet organizer. Users can upload pictures of
 You can visit out site at http://dbb.stuycs.org
 
 [Mantis Shrimp: Deploytest](http://206.189.194.250)
+
+## Watch Our YouTube Video [Here](https://youtu.be/jVZ0WN22d48)
