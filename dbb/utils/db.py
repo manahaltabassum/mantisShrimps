@@ -22,6 +22,26 @@ def getOutHist(username):
     db.close()
     return ans;
 
+def getOutfits(username):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    outfits = c.execute('SELECT * FROM outfits WHERE username="%s";' %(username))
+    my_dict = {}
+    for entry in outfits:
+        print entry
+        if entry[1] in my_dict:
+            my_dict[entry[1]].append(entry[2])
+        else:
+            my_dict[entry[1]] = [entry[2]]
+    dates = c.execute('SELECT * FROM outfit_history WHERE username="%s";' %(username))
+    for entry in dates:
+        print entry[2]
+        if entry[1] in my_dict:
+            my_dict[entry[1]].append(entry[2])
+    print my_dict
+    db.close()
+    return outfits
+
 def addOutHist(user, outName, date):
     db = sqlite3.connect(f)
     c = db.cursor()
