@@ -5,20 +5,6 @@ Yuqi Wu
 pd 8
 ---------------------
 
-
-/////////// Zone of Reflection \\\\\\\\\\\
-------------------------------------------
-OBSTACLES OVERCOME
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-UNRESOLVED ISSUES
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-COOL STUFF LEARNED
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-MID-DEVELOPMENT DESIGN CHANGES
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-LESSONS LEARNED
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
  ______   ______   __   __   __       ______   _______
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
 \:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
@@ -33,6 +19,9 @@ LESSONS LEARNED
 manahalT -- 2018-05-14 20:18:37
 finished up home.html by adding sign in and register options
 
+sashaF -- 2018-05-15 21:22:00
+Made the db.py and helper database functions
+
 manahalT -- 2018-05-15 20:53:28
 worked on calendar
 
@@ -40,6 +29,9 @@ yuqiW -- 2018-05-15 21:27:33
 worked on login and register
 manahalT -- 2018-05-16 13:29:09
 worked on calendar
+
+sashaF -- 2018-05-16 20:19:00
+Made the utils static folders and organized the files moving some stuff from dB to the app
 
 cliveJ -- 2018-05-17 15:45:00
 worked on weather API
@@ -54,6 +46,9 @@ wuY -- 2018-05-24 18:22:00
 finished deploy
 cliveJ -- 2018-05-25 22:45:00
 finished weather api
+
+sashaF -- 2018-05-27 21:20:00
+Designed the layout of the homepage
 
 wuY -- 2018-05-30 14:05:35
 working on home.js
@@ -81,6 +76,9 @@ finished uploading feature
 
 wuY -- 2018-06-12 13:19:00
 finished home.html, need more img to test
+
+sashaF -- 2018-06-12 21:15:00
+started to get the outfit history in the calendar.js file
 
 wuY -- 2018-06-12 22:06:23
 fixed logout
