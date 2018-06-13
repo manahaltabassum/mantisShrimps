@@ -8,6 +8,5 @@ This website is meant to act as a closet organizer. Users can upload pictures of
 ###### Required packages: request, flask-dropzone
 ###### Users will also need a Weather API key.
 
-Our site can be visited at: dbb.stuycs.org
-
+You can visit out site at http://dbb.stuycs.org
 [Mantis Shrimp: Deploytest](http://206.189.194.250)
