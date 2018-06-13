@@ -1,3 +1,5 @@
+//Used a tutorial on the following site to build the calendar: https://code.tutsplus.com/tutorials/how-to-build-a-beautiful-calendar-widget--net-12538
+
 var data = "testD"
 var d = document.getElementById('date');
 var createView = document.getElementById('createView');
