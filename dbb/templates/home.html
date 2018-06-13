@@ -15,10 +15,23 @@
   img{
   margin: 5px;
   }
+  .outfit{
+  width: 100px;
+  height: 100px;
+  }
+  h3 {
+  font: "Helvetica Neue", Helvetica, Arial, san-serif;
+  opacity: 1;
+  letter-spacing: 0px;
+  word-spacing: 3px !important;
+  text-transform: uppercase;
+  }
 </style>
 
 <br>
 <div class="container-fluid text-center">
+  <h3>Your Clothing Items</h3>
+  <br>
   <div class="row">
     <div class="col-sm-12" align="center">
       <form action="{{ url_for('home_display') }}" method="POST">
@@ -32,8 +45,7 @@
       <br>
     </div>
   </div>
-  <div class="row">
-    {% set count = 1 %} 
+  <div class="row">    {% set count = 1 %} 
     {% for cloth in clothes %}
     <img src={{cloth}} class="img-thumbnail" style="width:250px;height:250px;">
     {% if count % 3 == 0 %}
@@ -42,5 +54,49 @@
     {% set ctr = ctr + 1 %}
     {% endfor %}
   </div>
-</div>  
+</div>
+<br>
+<br>
+<div id="outfits" class="container-fluid text-center">
+  <h3>Your Outfits</h3>
+  <br>
+  <div class="row">
+    <div class="col-sm-2">
+      <img src="static/1.jpg" class="outfit img-rounded"><br>
+      <img src="static/2.jpg" class="outfit img-rounded"><br>
+      <img src="static/3.jpg" class="outfit img-rounded">
+      <p>Outfit Name</p>
+      <p>Date</p>
+    </div>
+    <div class="col-sm-2">
+      <img src="static/1.jpg" class="outfit img-rounded"><br>
+      <img src="static/2.jpg" class="outfit img-rounded"><br>
+      <img src="static/3.jpg" class="outfit img-rounded">
+      <p>Outfit Name</p>
+      <p>Date</p>
+    </div>
+    <div class="col-sm-2">
+      <img src="static/1.jpg" class="outfit img-rounded"><br>
+      <img src="static/2.jpg" class="outfit img-rounded"><br>
+      <img src="static/3.jpg" class="outfit img-rounded">
+      <p>Outfit Name</p>
+      <p>Date</p>
+    </div>
+    <div class="col-sm-2">
+      <img src="static/1.jpg" class="outfit img-rounded"><br>
+      <img src="static/2.jpg" class="outfit img-rounded"><br>
+      <img src="static/3.jpg" class="outfit img-rounded">
+      <p>Outfit Name</p>
+      <p>Date</p>
+    </div>
+    <div class="col-sm-2">
+      <img src="static/1.jpg" class="outfit img-rounded"><br>
+      <img src="static/2.jpg" class="outfit img-rounded"><br>
+      <img src="static/3.jpg" class="outfit img-rounded">
+      <p>Outfit Name</p>
+      <p>Date</p>
+    </div>
+  </div>
+</div>
+    
 {% endblock %}
