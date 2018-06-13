@@ -169,7 +169,8 @@ def creator():
         return render_template("creator.html", tops=getClothes(session["username"], "top"),
                                shoes=getClothes(session["username"], "shoes"),
                                pants=getClothes(session["username"], "pants"),
-                               date = date
+                               date = date,
+			       PATH=g
         )
 
 

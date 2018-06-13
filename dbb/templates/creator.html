@@ -95,7 +95,7 @@
       <div class="slideshow-container">
 	{% for top in tops %}
 	<div class="mySlides1">
-	  <img src="static/img/{{top[1]}}.{{top[4]}}" style="width:100%">
+	  <img src="{{PATH}}{{top[1]}}.{{top[4]}}" style="width:100%">
 	  <div class="text">{{top[3]}}</div>
 	</div>
 	{% endfor %}
@@ -109,7 +109,7 @@
       <div class="slideshow-container">
 	{% for pant in pants %}
 	<div class="mySlides2">
-	  <img src="static/img/{{pant[1]}}.{{pant[4]}}" style="width:100%">
+	  <img src="{{PATH}}{{pant[1]}}.{{pant[4]}}" style="width:100%">
 	  <div class="text">{{pant[3]}}</div>
 	</div>
 	{% endfor %}
@@ -123,7 +123,7 @@
       <div class="slideshow-container">
 	{% for shoe in shoes %}
 	<div class="mySlides3">
-	  <img src="static/img/{{shoe[1]}}.{{shoe[4]}}" style="width:100%">
+	  <img src="{{PATH}}{{shoe[1]}}.{{shoe[4]}}" style="width:100%">
 	  <div class="text">{{shoe[3]}}</div>
 	</div>
 	{% endfor %}
