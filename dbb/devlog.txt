@@ -74,3 +74,9 @@ fixed login
 wuY -- 2018-06-12 13:19:00
 finished home.html, need more img to test
 
+wuY -- 2018-06-12 22:06:23
+fixed logout
+
+wuY -- 2018-06-13 00:13:31
+updated design doc
+
