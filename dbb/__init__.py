@@ -52,6 +52,16 @@ def logout_db():
 		session.pop('password')
 #==================================================
 
+#=================AJAX HELPERS=====================
+@app.route("/outHist", methods = ["GET"])
+def outHist():
+        print "\n\n\n"
+        print getOutHist(unicode(session.get('username')))
+        print "\n\n\n"
+        return getOutHist(session.get('username'))
+
+        
+#==================================================
 @app.route('/')
 def root():
 	if in_session():	

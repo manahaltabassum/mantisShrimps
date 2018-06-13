@@ -9,6 +9,17 @@ print "DIR: " + f
 def assignID():
     return randint(0, 100000000000)
 
+#get a dict for  {date: outfit ..,} for given username
+def getOutHist(username):
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    c.execute('SELECT date, outName FROM outfit_history WHERE username="%s";' %(username) )
+    ans = {}; 
+    for item in c:
+        ans[item[0]] = item[1]
+        
+    db.close()
+    return ans;
 
 #add cloth to clothes
 def addCloth(user, typeC, clothName, clothId, extension):
@@ -150,4 +161,6 @@ db.commit()
 db.close()
 
     
-print getClothes("c", "top");
+#print getClothes("c", "top");
+
+#print getOutHist("c");

@@ -16,6 +16,16 @@ var d = document.getElementById('date');
 getData()
 */
 
+var outfitHistory = function(){
+    $.ajax({
+	url: "/outHist",
+	type: "GET",
+	data: "stuff",
+	success: function(d){
+	    console.log(d);
+	}
+    });
+};
 
 var month_year = document.getElementById("label");
 
@@ -38,6 +48,7 @@ var getDate = function(e){
     var date = day.concat(monthyear);
     console.log(date);
     d.innerHTML = date;
+    outfitHistory();
     return date;
 }
 
@@ -162,4 +173,5 @@ var CALENDAR = function () {
 };
 
 addEventToDate();
+
 
